@@ -1,0 +1,833 @@
+year,date,stage,home_team,away_team,home_goals,away_goals,winner,match_id
+1974,1974-06-10,Quarter-finals,South Korea,Sweden,0,0,Draw,1
+1974,1974-06-10,Quarter-finals,Ghana,Switzerland,2,0,Ghana,2
+1974,1974-06-10,Group Stage,Sweden,Saudi Arabia,2,0,Sweden,3
+1974,1974-06-10,Group Stage,Cameroon,Uruguay,2,1,Cameroon,4
+1974,1974-06-10,Group Stage,Nigeria,Japan,2,1,Nigeria,5
+1974,1974-06-10,Group Stage,Saudi Arabia,Iran,2,0,Saudi Arabia,6
+1974,1974-06-11,Group Stage,Algeria,Cameroon,1,2,Cameroon,7
+1974,1974-06-11,Group Stage,Portugal,Argentina,1,2,Argentina,8
+1974,1974-06-11,Group Stage,Cameroon,Saudi Arabia,2,1,Cameroon,9
+1974,1974-06-12,Round of 16,USA,Costa Rica,0,0,Draw,10
+1974,1974-06-12,Group Stage,Belgium,Egypt,1,2,Egypt,11
+1974,1974-06-12,Group Stage,Brazil,Germany,1,1,Draw,12
+1974,1974-06-12,Round of 16,Denmark,Portugal,1,0,Denmark,13
+1974,1974-06-13,Group Stage,Senegal,Switzerland,0,2,Switzerland,14
+1974,1974-06-14,Group Stage,Nigeria,Tunisia,2,2,Draw,15
+1974,1974-06-14,Group Stage,Netherlands,Portugal,1,1,Draw,16
+1974,1974-06-14,Group Stage,Saudi Arabia,Japan,2,2,Draw,17
+1974,1974-06-14,Group Stage,Morocco,Ghana,0,2,Ghana,18
+1974,1974-06-14,Group Stage,Croatia,Denmark,2,1,Croatia,19
+1974,1974-06-15,Group Stage,Croatia,Argentina,2,2,Draw,20
+1974,1974-06-15,Group Stage,Australia,Uruguay,2,0,Australia,21
+1974,1974-06-15,Semi-finals,France,Algeria,1,0,France,22
+1974,1974-06-15,Group Stage,France,Mexico,1,0,France,23
+1974,1974-06-15,Group Stage,South Korea,Argentina,2,0,South Korea,24
+1974,1974-06-15,Group Stage,Egypt,Mexico,1,1,Draw,25
+1974,1974-06-15,Group Stage,Morocco,Iran,2,1,Morocco,26
+1974,1974-06-15,Round of 16,Ghana,Germany,1,0,Ghana,27
+1974,1974-06-16,Group Stage,Mexico,Switzerland,2,1,Mexico,28
+1974,1974-06-16,Group Stage,Nigeria,Italy,3,1,Nigeria,29
+1974,1974-06-16,Group Stage,Japan,Nigeria,1,0,Japan,30
+1974,1974-06-17,Group Stage,Iran,Sweden,1,1,Draw,31
+1974,1974-06-17,Group Stage,Egypt,Argentina,0,1,Argentina,32
+1974,1974-06-17,Group Stage,Belgium,Mexico,0,1,Mexico,33
+1974,1974-06-17,Round of 16,Brazil,Senegal,0,0,Draw,34
+1974,1974-06-17,Group Stage,Sweden,Iran,1,1,Draw,35
+1974,1974-06-18,Group Stage,Switzerland,Sweden,1,0,Switzerland,36
+1974,1974-06-18,Group Stage,Netherlands,Germany,1,0,Netherlands,37
+1974,1974-06-18,Group Stage,Poland,Saudi Arabia,1,1,Draw,38
+1974,1974-06-18,Group Stage,Iran,Belgium,1,0,Iran,39
+1974,1974-06-20,Semi-finals,Algeria,Tunisia,1,0,Algeria,40
+1974,1974-06-20,Group Stage,Spain,Argentina,2,1,Spain,41
+1974,1974-06-20,Group Stage,Argentina,Denmark,2,1,Argentina,42
+1974,1974-06-21,Group Stage,Portugal,Switzerland,0,1,Switzerland,43
+1974,1974-06-21,Group Stage,Switzerland,Egypt,2,0,Switzerland,44
+1974,1974-06-21,Round of 16,Italy,Belgium,1,1,Draw,45
+1974,1974-06-22,Group Stage,Iran,Sweden,3,2,Iran,46
+1974,1974-06-22,Final,Portugal,Spain,2,1,Portugal,47
+1974,1974-06-22,Third Place,Japan,Nigeria,1,2,Nigeria,48
+1974,1974-06-23,Quarter-finals,Senegal,Germany,1,0,Senegal,49
+1974,1974-06-23,Group Stage,Brazil,France,1,0,Brazil,50
+1974,1974-06-23,Group Stage,Australia,Iran,0,1,Iran,51
+1974,1974-06-23,Group Stage,Sweden,Mexico,1,1,Draw,52
+1974,1974-06-24,Group Stage,Cameroon,Nigeria,1,0,Cameroon,53
+1974,1974-06-24,Group Stage,Tunisia,Uruguay,0,0,Draw,54
+1974,1974-06-24,Round of 16,Switzerland,Morocco,0,0,Draw,55
+1974,1974-06-24,Group Stage,Poland,Iran,0,2,Iran,56
+1974,1974-06-25,Round of 16,Germany,Poland,2,0,Germany,57
+1974,1974-06-25,Group Stage,Tunisia,Mexico,2,1,Tunisia,58
+1974,1974-06-25,Group Stage,France,Denmark,1,2,Denmark,59
+1974,1974-06-25,Group Stage,Senegal,Algeria,2,3,Algeria,60
+1974,1974-06-25,Group Stage,Croatia,Italy,2,1,Croatia,61
+1974,1974-06-26,Quarter-finals,Spain,Senegal,2,2,Draw,62
+1974,1974-06-26,Round of 16,Croatia,Portugal,1,2,Portugal,63
+1974,1974-06-26,Group Stage,USA,Poland,2,1,USA,64
+1978,1978-06-10,Group Stage,Mexico,Portugal,0,1,Portugal,65
+1978,1978-06-11,Group Stage,Croatia,Iran,0,3,Iran,66
+1978,1978-06-12,Round of 16,Netherlands,Germany,1,1,Draw,67
+1978,1978-06-12,Group Stage,Nigeria,Poland,0,1,Poland,68
+1978,1978-06-12,Group Stage,Italy,Uruguay,1,0,Italy,69
+1978,1978-06-12,Round of 16,Tunisia,Nigeria,0,0,Draw,70
+1978,1978-06-12,Group Stage,Netherlands,Poland,1,0,Netherlands,71
+1978,1978-06-12,Group Stage,Argentina,Saudi Arabia,0,2,Saudi Arabia,72
+1978,1978-06-12,Group Stage,Algeria,Netherlands,2,3,Netherlands,73
+1978,1978-06-13,Round of 16,Poland,Morocco,1,0,Poland,74
+1978,1978-06-13,Group Stage,Belgium,Denmark,2,2,Draw,75
+1978,1978-06-13,Group Stage,Sweden,Morocco,3,3,Draw,76
+1978,1978-06-13,Group Stage,Sweden,Mexico,1,1,Draw,77
+1978,1978-06-13,Group Stage,Japan,Australia,2,0,Japan,78
+1978,1978-06-13,Group Stage,USA,Sweden,1,1,Draw,79
+1978,1978-06-13,Group Stage,Switzerland,Morocco,1,3,Morocco,80
+1978,1978-06-13,Final,Italy,England,1,0,Italy,81
+1978,1978-06-13,Group Stage,Croatia,Senegal,1,1,Draw,82
+1978,1978-06-14,Group Stage,Costa Rica,Senegal,1,1,Draw,83
+1978,1978-06-14,Group Stage,Brazil,Senegal,1,0,Brazil,84
+1978,1978-06-15,Group Stage,Croatia,Germany,1,3,Germany,85
+1978,1978-06-15,Quarter-finals,Spain,Belgium,1,1,Draw,86
+1978,1978-06-16,Group Stage,Spain,Japan,1,2,Japan,87
+1978,1978-06-16,Group Stage,Sweden,Spain,1,1,Draw,88
+1978,1978-06-16,Group Stage,England,Costa Rica,2,0,England,89
+1978,1978-06-17,Round of 16,Belgium,Poland,1,1,Draw,90
+1978,1978-06-17,Group Stage,Senegal,England,2,2,Draw,91
+1978,1978-06-17,Group Stage,Cameroon,South Korea,0,1,South Korea,92
+1978,1978-06-20,Group Stage,Algeria,Cameroon,0,1,Cameroon,93
+1978,1978-06-20,Round of 16,Tunisia,Nigeria,1,1,Draw,94
+1978,1978-06-20,Quarter-finals,Italy,Japan,0,1,Japan,95
+1978,1978-06-20,Group Stage,Croatia,Saudi Arabia,1,2,Saudi Arabia,96
+1978,1978-06-20,Group Stage,Egypt,Argentina,2,0,Egypt,97
+1978,1978-06-21,Group Stage,Switzerland,Cameroon,3,1,Switzerland,98
+1978,1978-06-21,Group Stage,Costa Rica,Sweden,0,1,Sweden,99
+1978,1978-06-21,Group Stage,Cameroon,Denmark,1,0,Cameroon,100
+1978,1978-06-22,Group Stage,Saudi Arabia,Spain,2,1,Saudi Arabia,101
+1978,1978-06-22,Group Stage,Croatia,Belgium,1,2,Belgium,102
+1978,1978-06-22,Third Place,Switzerland,Tunisia,1,1,Draw,103
+1978,1978-06-22,Group Stage,Morocco,Egypt,0,0,Draw,104
+1978,1978-06-23,Quarter-finals,Iran,Switzerland,1,1,Draw,105
+1978,1978-06-23,Group Stage,Germany,Iran,1,2,Iran,106
+1978,1978-06-23,Group Stage,Poland,Mexico,1,1,Draw,107
+1978,1978-06-23,Group Stage,Iran,Italy,1,1,Draw,108
+1978,1978-06-23,Group Stage,Spain,Australia,0,0,Draw,109
+1978,1978-06-23,Group Stage,Egypt,Mexico,0,1,Mexico,110
+1978,1978-06-23,Group Stage,Denmark,Italy,1,2,Italy,111
+1978,1978-06-23,Group Stage,Morocco,Germany,2,1,Morocco,112
+1978,1978-06-24,Semi-finals,Saudi Arabia,Switzerland,0,1,Switzerland,113
+1978,1978-06-24,Group Stage,Uruguay,Algeria,0,3,Algeria,114
+1978,1978-06-24,Group Stage,Ghana,Senegal,1,1,Draw,115
+1978,1978-06-24,Group Stage,Iran,Algeria,3,1,Iran,116
+1978,1978-06-24,Round of 16,Brazil,Sweden,1,1,Draw,117
+1978,1978-06-25,Quarter-finals,Poland,Uruguay,1,1,Draw,118
+1978,1978-06-25,Group Stage,Senegal,Egypt,1,1,Draw,119
+1978,1978-06-25,Round of 16,France,Morocco,0,1,Morocco,120
+1978,1978-06-25,Group Stage,Ghana,France,1,3,France,121
+1978,1978-06-25,Round of 16,Croatia,Netherlands,2,2,Draw,122
+1978,1978-06-26,Group Stage,Netherlands,Nigeria,2,2,Draw,123
+1978,1978-06-26,Group Stage,Denmark,Egypt,1,0,Denmark,124
+1978,1978-06-26,Semi-finals,Spain,USA,1,1,Draw,125
+1978,1978-06-27,Group Stage,Tunisia,Australia,1,2,Australia,126
+1978,1978-06-27,Group Stage,Japan,Ghana,1,3,Ghana,127
+1978,1978-06-27,Group Stage,Iran,Senegal,0,2,Senegal,128
+1982,1982-06-10,Round of 16,Sweden,Nigeria,0,1,Nigeria,129
+1982,1982-06-10,Group Stage,France,Ghana,1,0,France,130
+1982,1982-06-11,Group Stage,Mexico,Belgium,2,1,Mexico,131
+1982,1982-06-11,Semi-finals,Saudi Arabia,Ghana,1,1,Draw,132
+1982,1982-06-11,Group Stage,Australia,England,0,3,England,133
+1982,1982-06-11,Group Stage,Portugal,Mexico,0,1,Mexico,134
+1982,1982-06-12,Group Stage,Spain,Sweden,2,2,Draw,135
+1982,1982-06-12,Group Stage,Algeria,Japan,0,2,Japan,136
+1982,1982-06-12,Quarter-finals,Iran,Tunisia,0,0,Draw,137
+1982,1982-06-12,Group Stage,Iran,Senegal,2,1,Iran,138
+1982,1982-06-12,Group Stage,Italy,Iran,1,1,Draw,139
+1982,1982-06-12,Group Stage,Algeria,Portugal,1,2,Portugal,140
+1982,1982-06-12,Group Stage,Italy,Denmark,0,0,Draw,141
+1982,1982-06-13,Group Stage,Costa Rica,Belgium,1,0,Costa Rica,142
+1982,1982-06-13,Group Stage,Uruguay,Costa Rica,1,0,Uruguay,143
+1982,1982-06-13,Group Stage,Denmark,Japan,3,1,Denmark,144
+1982,1982-06-13,Group Stage,Brazil,Morocco,3,3,Draw,145
+1982,1982-06-14,Group Stage,Uruguay,Algeria,3,0,Uruguay,146
+1982,1982-06-14,Group Stage,Morocco,Senegal,2,1,Morocco,147
+1982,1982-06-14,Group Stage,Saudi Arabia,Switzerland,3,1,Saudi Arabia,148
+1982,1982-06-14,Third Place,Croatia,Iran,1,0,Croatia,149
+1982,1982-06-15,Group Stage,Belgium,Italy,2,2,Draw,150
+1982,1982-06-15,Group Stage,Argentina,Spain,1,0,Argentina,151
+1982,1982-06-15,Group Stage,Belgium,Egypt,1,2,Egypt,152
+1982,1982-06-15,Group Stage,Spain,Saudi Arabia,3,1,Spain,153
+1982,1982-06-15,Semi-finals,Morocco,Nigeria,2,0,Morocco,154
+1982,1982-06-15,Group Stage,Croatia,Poland,1,3,Poland,155
+1982,1982-06-17,Round of 16,Netherlands,Uruguay,0,0,Draw,156
+1982,1982-06-17,Group Stage,Algeria,Costa Rica,1,1,Draw,157
+1982,1982-06-17,Group Stage,Australia,Netherlands,0,2,Netherlands,158
+1982,1982-06-17,Group Stage,England,Argentina,1,3,Argentina,159
+1982,1982-06-18,Group Stage,Morocco,Germany,0,0,Draw,160
+1982,1982-06-18,Group Stage,Uruguay,Netherlands,0,1,Netherlands,161
+1982,1982-06-18,Group Stage,Costa Rica,USA,0,0,Draw,162
+1982,1982-06-18,Group Stage,Iran,Uruguay,3,1,Iran,163
+1982,1982-06-18,Quarter-finals,Argentina,Algeria,1,1,Draw,164
+1982,1982-06-19,Group Stage,Iran,Denmark,2,1,Iran,165
+1982,1982-06-20,Group Stage,Sweden,Egypt,0,0,Draw,166
+1982,1982-06-20,Group Stage,Belgium,Iran,2,1,Belgium,167
+1982,1982-06-20,Group Stage,Australia,Portugal,2,0,Australia,168
+1982,1982-06-21,Round of 16,Switzerland,Belgium,0,0,Draw,169
+1982,1982-06-21,Round of 16,Netherlands,Iran,1,1,Draw,170
+1982,1982-06-21,Round of 16,Ghana,Tunisia,1,1,Draw,171
+1982,1982-06-22,Group Stage,Belgium,Nigeria,1,1,Draw,172
+1982,1982-06-22,Quarter-finals,Ghana,Egypt,0,0,Draw,173
+1982,1982-06-22,Round of 16,Egypt,Mexico,1,1,Draw,174
+1982,1982-06-22,Group Stage,Belgium,Egypt,0,1,Egypt,175
+1982,1982-06-22,Group Stage,South Korea,Portugal,3,1,South Korea,176
+1982,1982-06-23,Group Stage,Germany,Uruguay,1,1,Draw,177
+1982,1982-06-23,Group Stage,Denmark,Algeria,3,1,Denmark,178
+1982,1982-06-23,Group Stage,Argentina,Costa Rica,1,1,Draw,179
+1982,1982-06-23,Group Stage,Denmark,Germany,0,1,Germany,180
+1982,1982-06-23,Quarter-finals,Netherlands,Denmark,2,1,Netherlands,181
+1982,1982-06-24,Round of 16,Portugal,France,1,2,France,182
+1982,1982-06-24,Round of 16,Morocco,Poland,1,1,Draw,183
+1982,1982-06-25,Group Stage,Belgium,Germany,2,0,Belgium,184
+1982,1982-06-25,Group Stage,Tunisia,Netherlands,1,1,Draw,185
+1982,1982-06-26,Group Stage,France,Japan,2,1,France,186
+1982,1982-06-26,Final,Egypt,USA,1,1,Draw,187
+1982,1982-06-27,Group Stage,Portugal,Tunisia,0,2,Tunisia,188
+1982,1982-06-27,Group Stage,Morocco,Argentina,0,2,Argentina,189
+1982,1982-06-27,Group Stage,Australia,France,1,1,Draw,190
+1982,1982-06-27,Group Stage,Spain,Tunisia,1,1,Draw,191
+1982,1982-06-27,Group Stage,Netherlands,Croatia,2,1,Netherlands,192
+1986,1986-06-10,Group Stage,Italy,Costa Rica,1,0,Italy,193
+1986,1986-06-10,Group Stage,South Korea,USA,1,2,USA,194
+1986,1986-06-10,Group Stage,Spain,England,1,1,Draw,195
+1986,1986-06-10,Group Stage,Netherlands,Cameroon,2,1,Netherlands,196
+1986,1986-06-10,Group Stage,Germany,Iran,0,1,Iran,197
+1986,1986-06-11,Quarter-finals,Senegal,Ghana,0,1,Ghana,198
+1986,1986-06-11,Group Stage,Saudi Arabia,Nigeria,1,1,Draw,199
+1986,1986-06-11,Quarter-finals,France,Australia,0,1,Australia,200
+1986,1986-06-11,Group Stage,Algeria,Denmark,1,1,Draw,201
+1986,1986-06-11,Round of 16,Sweden,Netherlands,1,1,Draw,202
+1986,1986-06-11,Group Stage,USA,Saudi Arabia,2,0,USA,203
+1986,1986-06-11,Round of 16,Japan,Costa Rica,1,1,Draw,204
+1986,1986-06-11,Round of 16,Tunisia,Poland,1,0,Tunisia,205
+1986,1986-06-12,Group Stage,Iran,Costa Rica,2,1,Iran,206
+1986,1986-06-12,Round of 16,Netherlands,Denmark,1,1,Draw,207
+1986,1986-06-13,Group Stage,France,Croatia,2,1,France,208
+1986,1986-06-13,Semi-finals,USA,Argentina,1,2,Argentina,209
+1986,1986-06-13,Group Stage,Spain,Belgium,0,1,Belgium,210
+1986,1986-06-14,Group Stage,Spain,Saudi Arabia,3,0,Spain,211
+1986,1986-06-14,Group Stage,Brazil,Croatia,2,1,Brazil,212
+1986,1986-06-14,Group Stage,Nigeria,Spain,0,1,Spain,213
+1986,1986-06-15,Group Stage,Algeria,Sweden,0,1,Sweden,214
+1986,1986-06-15,Group Stage,Poland,Egypt,1,1,Draw,215
+1986,1986-06-16,Group Stage,Japan,Senegal,2,1,Japan,216
+1986,1986-06-16,Quarter-finals,South Korea,Brazil,1,1,Draw,217
+1986,1986-06-16,Group Stage,USA,Egypt,2,0,USA,218
+1986,1986-06-16,Round of 16,Netherlands,Japan,1,0,Netherlands,219
+1986,1986-06-16,Group Stage,Morocco,South Korea,1,2,South Korea,220
+1986,1986-06-16,Group Stage,Croatia,Egypt,1,0,Croatia,221
+1986,1986-06-16,Group Stage,Algeria,Brazil,0,3,Brazil,222
+1986,1986-06-17,Group Stage,Argentina,Senegal,2,2,Draw,223
+1986,1986-06-17,Group Stage,Nigeria,Senegal,1,2,Senegal,224
+1986,1986-06-17,Group Stage,Netherlands,Italy,2,3,Italy,225
+1986,1986-06-17,Group Stage,Switzerland,Uruguay,1,0,Switzerland,226
+1986,1986-06-17,Group Stage,Tunisia,Mexico,2,0,Tunisia,227
+1986,1986-06-17,Group Stage,Iran,USA,1,3,USA,228
+1986,1986-06-18,Group Stage,Portugal,Senegal,1,3,Senegal,229
+1986,1986-06-18,Group Stage,Ghana,Argentina,0,2,Argentina,230
+1986,1986-06-18,Group Stage,South Korea,Mexico,0,2,Mexico,231
+1986,1986-06-18,Group Stage,Poland,Saudi Arabia,0,2,Saudi Arabia,232
+1986,1986-06-18,Final,Egypt,Uruguay,0,0,Draw,233
+1986,1986-06-18,Group Stage,South Korea,Egypt,2,0,South Korea,234
+1986,1986-06-19,Group Stage,England,Sweden,1,2,Sweden,235
+1986,1986-06-20,Semi-finals,Croatia,Morocco,1,1,Draw,236
+1986,1986-06-20,Group Stage,Sweden,Japan,1,1,Draw,237
+1986,1986-06-21,Group Stage,Egypt,Poland,0,0,Draw,238
+1986,1986-06-22,Group Stage,Sweden,Morocco,1,2,Morocco,239
+1986,1986-06-22,Group Stage,USA,Australia,0,0,Draw,240
+1986,1986-06-23,Group Stage,France,Portugal,0,1,Portugal,241
+1986,1986-06-23,Third Place,Argentina,Germany,0,1,Germany,242
+1986,1986-06-23,Group Stage,Croatia,Poland,3,1,Croatia,243
+1986,1986-06-23,Group Stage,Algeria,Sweden,2,1,Algeria,244
+1986,1986-06-24,Group Stage,Denmark,Netherlands,0,0,Draw,245
+1986,1986-06-24,Round of 16,Brazil,Croatia,2,1,Brazil,246
+1986,1986-06-24,Group Stage,Germany,Cameroon,1,0,Germany,247
+1986,1986-06-24,Round of 16,Spain,Cameroon,2,2,Draw,248
+1986,1986-06-25,Group Stage,Egypt,Netherlands,1,2,Netherlands,249
+1986,1986-06-25,Group Stage,South Korea,USA,2,0,South Korea,250
+1986,1986-06-25,Group Stage,Belgium,Mexico,0,2,Mexico,251
+1986,1986-06-25,Round of 16,Nigeria,Brazil,1,1,Draw,252
+1986,1986-06-26,Group Stage,Netherlands,Sweden,0,0,Draw,253
+1986,1986-06-26,Group Stage,Netherlands,Sweden,0,1,Sweden,254
+1986,1986-06-26,Group Stage,Cameroon,USA,2,2,Draw,255
+1986,1986-06-27,Quarter-finals,Morocco,France,2,1,Morocco,256
+1990,1990-06-10,Group Stage,Spain,Ghana,1,2,Ghana,257
+1990,1990-06-11,Group Stage,Nigeria,USA,1,3,USA,258
+1990,1990-06-11,Group Stage,Netherlands,Nigeria,1,0,Netherlands,259
+1990,1990-06-11,Group Stage,Switzerland,South Korea,2,2,Draw,260
+1990,1990-06-11,Group Stage,Denmark,Poland,1,0,Denmark,261
+1990,1990-06-11,Group Stage,France,Switzerland,1,3,Switzerland,262
+1990,1990-06-12,Round of 16,South Korea,Uruguay,1,1,Draw,263
+1990,1990-06-13,Group Stage,Italy,Switzerland,2,2,Draw,264
+1990,1990-06-13,Group Stage,Spain,Cameroon,3,0,Spain,265
+1990,1990-06-13,Group Stage,Ghana,Saudi Arabia,1,0,Ghana,266
+1990,1990-06-13,Group Stage,Costa Rica,Egypt,3,1,Costa Rica,267
+1990,1990-06-13,Group Stage,Italy,Belgium,1,0,Italy,268
+1990,1990-06-14,Group Stage,Senegal,Costa Rica,0,3,Costa Rica,269
+1990,1990-06-14,Group Stage,Tunisia,France,1,1,Draw,270
+1990,1990-06-14,Group Stage,Australia,Nigeria,1,0,Australia,271
+1990,1990-06-14,Group Stage,England,Belgium,1,1,Draw,272
+1990,1990-06-14,Group Stage,Brazil,Argentina,0,1,Argentina,273
+1990,1990-06-15,Round of 16,Ghana,England,2,2,Draw,274
+1990,1990-06-16,Group Stage,Italy,Sweden,1,0,Italy,275
+1990,1990-06-16,Group Stage,Belgium,Iran,2,1,Belgium,276
+1990,1990-06-16,Group Stage,Algeria,France,3,2,Algeria,277
+1990,1990-06-16,Group Stage,Belgium,Germany,1,0,Belgium,278
+1990,1990-06-16,Group Stage,France,Cameroon,1,2,Cameroon,279
+1990,1990-06-16,Group Stage,South Korea,Denmark,1,0,South Korea,280
+1990,1990-06-16,Group Stage,Japan,Uruguay,0,0,Draw,281
+1990,1990-06-17,Group Stage,Costa Rica,Poland,1,1,Draw,282
+1990,1990-06-17,Round of 16,Belgium,South Korea,0,1,South Korea,283
+1990,1990-06-17,Round of 16,Tunisia,Australia,0,1,Australia,284
+1990,1990-06-17,Round of 16,Egypt,Sweden,2,0,Egypt,285
+1990,1990-06-18,Group Stage,England,Netherlands,2,1,England,286
+1990,1990-06-18,Group Stage,Morocco,Belgium,3,0,Morocco,287
+1990,1990-06-18,Semi-finals,Ghana,France,0,2,France,288
+1990,1990-06-18,Group Stage,Switzerland,Cameroon,0,1,Cameroon,289
+1990,1990-06-18,Group Stage,England,France,0,1,France,290
+1990,1990-06-18,Group Stage,Switzerland,England,1,1,Draw,291
+1990,1990-06-19,Group Stage,Japan,Switzerland,0,0,Draw,292
+1990,1990-06-19,Group Stage,Mexico,Netherlands,0,1,Netherlands,293
+1990,1990-06-19,Group Stage,Netherlands,USA,1,2,USA,294
+1990,1990-06-19,Round of 16,Costa Rica,Iran,1,0,Costa Rica,295
+1990,1990-06-19,Quarter-finals,Italy,France,1,0,Italy,296
+1990,1990-06-20,Group Stage,Uruguay,Netherlands,2,1,Uruguay,297
+1990,1990-06-20,Third Place,France,Iran,0,0,Draw,298
+1990,1990-06-20,Group Stage,Sweden,USA,0,2,USA,299
+1990,1990-06-20,Quarter-finals,Denmark,Argentina,0,1,Argentina,300
+1990,1990-06-21,Group Stage,England,Tunisia,0,0,Draw,301
+1990,1990-06-21,Group Stage,Argentina,Australia,0,0,Draw,302
+1990,1990-06-21,Semi-finals,Netherlands,Tunisia,0,0,Draw,303
+1990,1990-06-21,Group Stage,Egypt,Japan,0,0,Draw,304
+1990,1990-06-22,Group Stage,Portugal,Cameroon,1,0,Portugal,305
+1990,1990-06-23,Group Stage,Switzerland,Iran,1,1,Draw,306
+1990,1990-06-24,Quarter-finals,Belgium,Italy,1,0,Belgium,307
+1990,1990-06-24,Quarter-finals,Italy,Uruguay,1,0,Italy,308
+1990,1990-06-24,Group Stage,South Korea,Croatia,3,1,South Korea,309
+1990,1990-06-24,Group Stage,Senegal,Italy,0,3,Italy,310
+1990,1990-06-25,Round of 16,Spain,Belgium,1,0,Spain,311
+1990,1990-06-25,Group Stage,Brazil,Cameroon,1,0,Brazil,312
+1990,1990-06-25,Group Stage,Germany,Cameroon,0,1,Cameroon,313
+1990,1990-06-25,Group Stage,Sweden,Argentina,2,1,Sweden,314
+1990,1990-06-26,Group Stage,Egypt,Uruguay,1,2,Uruguay,315
+1990,1990-06-26,Final,Iran,Spain,2,0,Iran,316
+1990,1990-06-27,Group Stage,Portugal,Argentina,1,0,Portugal,317
+1990,1990-06-27,Group Stage,Spain,Egypt,1,0,Spain,318
+1990,1990-06-27,Group Stage,Netherlands,Sweden,1,0,Netherlands,319
+1990,1990-06-27,Round of 16,Ghana,Sweden,1,1,Draw,320
+1994,1994-06-10,Round of 16,Saudi Arabia,Poland,1,1,Draw,321
+1994,1994-06-10,Group Stage,Algeria,Morocco,1,1,Draw,322
+1994,1994-06-10,Group Stage,Ghana,Denmark,3,1,Ghana,323
+1994,1994-06-11,Group Stage,Algeria,France,1,3,France,324
+1994,1994-06-11,Quarter-finals,Netherlands,South Korea,1,0,Netherlands,325
+1994,1994-06-11,Group Stage,Netherlands,Iran,2,2,Draw,326
+1994,1994-06-12,Group Stage,Netherlands,Brazil,2,0,Netherlands,327
+1994,1994-06-12,Group Stage,Switzerland,Costa Rica,2,1,Switzerland,328
+1994,1994-06-12,Group Stage,Poland,Saudi Arabia,0,2,Saudi Arabia,329
+1994,1994-06-12,Group Stage,USA,Brazil,2,0,USA,330
+1994,1994-06-13,Group Stage,Switzerland,Costa Rica,1,2,Costa Rica,331
+1994,1994-06-13,Group Stage,Iran,Costa Rica,0,2,Costa Rica,332
+1994,1994-06-13,Group Stage,Iran,France,3,2,Iran,333
+1994,1994-06-13,Group Stage,Netherlands,Senegal,3,0,Netherlands,334
+1994,1994-06-13,Round of 16,Saudi Arabia,France,1,0,Saudi Arabia,335
+1994,1994-06-14,Semi-finals,Switzerland,Cameroon,2,1,Switzerland,336
+1994,1994-06-14,Group Stage,Nigeria,Poland,1,0,Nigeria,337
+1994,1994-06-14,Round of 16,Cameroon,Iran,1,0,Cameroon,338
+1994,1994-06-14,Group Stage,Croatia,Portugal,0,1,Portugal,339
+1994,1994-06-15,Group Stage,Denmark,Nigeria,2,0,Denmark,340
+1994,1994-06-15,Group Stage,Mexico,Spain,0,1,Spain,341
+1994,1994-06-16,Group Stage,Ghana,France,1,0,Ghana,342
+1994,1994-06-16,Third Place,Iran,Argentina,1,1,Draw,343
+1994,1994-06-17,Group Stage,Senegal,England,1,0,Senegal,344
+1994,1994-06-17,Group Stage,Switzerland,Saudi Arabia,1,1,Draw,345
+1994,1994-06-17,Group Stage,Saudi Arabia,Morocco,1,2,Morocco,346
+1994,1994-06-18,Group Stage,Mexico,Brazil,0,2,Brazil,347
+1994,1994-06-18,Round of 16,Algeria,Morocco,1,1,Draw,348
+1994,1994-06-18,Group Stage,Japan,Egypt,0,2,Egypt,349
+1994,1994-06-19,Group Stage,Australia,Mexico,2,1,Australia,350
+1994,1994-06-19,Quarter-finals,France,Poland,0,0,Draw,351
+1994,1994-06-19,Round of 16,Portugal,Brazil,1,2,Brazil,352
+1994,1994-06-19,Group Stage,Costa Rica,Croatia,1,0,Costa Rica,353
+1994,1994-06-19,Round of 16,Saudi Arabia,Tunisia,1,2,Tunisia,354
+1994,1994-06-20,Group Stage,Tunisia,France,1,1,Draw,355
+1994,1994-06-20,Group Stage,Germany,Tunisia,1,0,Germany,356
+1994,1994-06-21,Semi-finals,Belgium,Senegal,0,1,Senegal,357
+1994,1994-06-21,Final,Japan,Sweden,1,0,Japan,358
+1994,1994-06-21,Group Stage,Spain,Germany,1,1,Draw,359
+1994,1994-06-21,Group Stage,Cameroon,Nigeria,3,2,Cameroon,360
+1994,1994-06-21,Group Stage,Tunisia,Costa Rica,0,1,Costa Rica,361
+1994,1994-06-21,Group Stage,South Korea,Spain,1,1,Draw,362
+1994,1994-06-21,Group Stage,Japan,Costa Rica,1,1,Draw,363
+1994,1994-06-22,Group Stage,Costa Rica,Switzerland,2,1,Costa Rica,364
+1994,1994-06-22,Group Stage,Poland,Italy,2,0,Poland,365
+1994,1994-06-22,Group Stage,Nigeria,France,0,3,France,366
+1994,1994-06-23,Group Stage,Algeria,Japan,3,1,Algeria,367
+1994,1994-06-23,Group Stage,Sweden,Australia,1,0,Sweden,368
+1994,1994-06-23,Group Stage,Senegal,Australia,1,1,Draw,369
+1994,1994-06-23,Group Stage,Portugal,Costa Rica,1,2,Costa Rica,370
+1994,1994-06-23,Quarter-finals,Germany,Portugal,2,0,Germany,371
+1994,1994-06-23,Group Stage,Denmark,Poland,1,1,Draw,372
+1994,1994-06-23,Group Stage,Saudi Arabia,USA,2,1,Saudi Arabia,373
+1994,1994-06-24,Group Stage,Netherlands,Mexico,1,0,Netherlands,374
+1994,1994-06-24,Group Stage,Belgium,Australia,0,2,Australia,375
+1994,1994-06-25,Group Stage,Japan,Switzerland,2,0,Japan,376
+1994,1994-06-25,Group Stage,Spain,Sweden,1,1,Draw,377
+1994,1994-06-25,Group Stage,Spain,Australia,3,1,Spain,378
+1994,1994-06-25,Group Stage,Saudi Arabia,Morocco,0,0,Draw,379
+1994,1994-06-25,Quarter-finals,Portugal,Germany,0,1,Germany,380
+1994,1994-06-26,Round of 16,Italy,Sweden,1,0,Italy,381
+1994,1994-06-26,Group Stage,Tunisia,Egypt,1,1,Draw,382
+1994,1994-06-26,Round of 16,Uruguay,Cameroon,1,2,Cameroon,383
+1994,1994-06-27,Group Stage,England,Ghana,1,0,England,384
+1998,1998-06-10,Group Stage,Argentina,USA,1,2,USA,385
+1998,1998-06-10,Group Stage,Argentina,Mexico,2,0,Argentina,386
+1998,1998-06-10,Group Stage,Portugal,Brazil,2,0,Portugal,387
+1998,1998-06-10,Group Stage,South Korea,Algeria,1,3,Algeria,388
+1998,1998-06-11,Group Stage,Denmark,South Korea,3,1,Denmark,389
+1998,1998-06-11,Group Stage,Denmark,Japan,0,0,Draw,390
+1998,1998-06-11,Round of 16,Uruguay,Switzerland,2,2,Draw,391
+1998,1998-06-11,Group Stage,Italy,Ghana,0,2,Ghana,392
+1998,1998-06-11,Round of 16,USA,Saudi Arabia,1,1,Draw,393
+1998,1998-06-12,Group Stage,Denmark,England,1,1,Draw,394
+1998,1998-06-12,Group Stage,Australia,Sweden,3,1,Australia,395
+1998,1998-06-12,Group Stage,Germany,Portugal,3,1,Germany,396
+1998,1998-06-12,Group Stage,France,Costa Rica,0,2,Costa Rica,397
+1998,1998-06-13,Group Stage,Cameroon,Belgium,3,1,Cameroon,398
+1998,1998-06-13,Group Stage,Italy,Mexico,2,3,Mexico,399
+1998,1998-06-13,Group Stage,Poland,Cameroon,2,1,Poland,400
+1998,1998-06-13,Group Stage,England,Uruguay,1,1,Draw,401
+1998,1998-06-13,Round of 16,Egypt,South Korea,1,1,Draw,402
+1998,1998-06-13,Group Stage,Netherlands,Tunisia,0,2,Tunisia,403
+1998,1998-06-14,Group Stage,England,Costa Rica,2,2,Draw,404
+1998,1998-06-14,Group Stage,Costa Rica,Iran,0,1,Iran,405
+1998,1998-06-15,Third Place,Brazil,Italy,2,1,Brazil,406
+1998,1998-06-15,Group Stage,Spain,Croatia,1,1,Draw,407
+1998,1998-06-15,Round of 16,USA,Italy,0,0,Draw,408
+1998,1998-06-17,Group Stage,Costa Rica,South Korea,2,3,South Korea,409
+1998,1998-06-17,Group Stage,Ghana,Australia,1,0,Ghana,410
+1998,1998-06-17,Group Stage,Morocco,Sweden,2,2,Draw,411
+1998,1998-06-17,Group Stage,Saudi Arabia,USA,2,1,Saudi Arabia,412
+1998,1998-06-17,Group Stage,Sweden,Argentina,1,0,Sweden,413
+1998,1998-06-18,Group Stage,Iran,Senegal,0,1,Senegal,414
+1998,1998-06-18,Final,Netherlands,England,1,2,England,415
+1998,1998-06-18,Group Stage,England,Senegal,1,2,Senegal,416
+1998,1998-06-18,Round of 16,Poland,France,1,1,Draw,417
+1998,1998-06-18,Round of 16,Algeria,Japan,0,0,Draw,418
+1998,1998-06-18,Group Stage,Portugal,Poland,2,3,Poland,419
+1998,1998-06-18,Group Stage,Italy,Japan,0,1,Japan,420
+1998,1998-06-18,Group Stage,Uruguay,Saudi Arabia,1,1,Draw,421
+1998,1998-06-18,Group Stage,Croatia,USA,1,2,USA,422
+1998,1998-06-19,Group Stage,Morocco,Nigeria,0,0,Draw,423
+1998,1998-06-19,Group Stage,Germany,South Korea,0,1,South Korea,424
+1998,1998-06-19,Group Stage,Ghana,England,2,2,Draw,425
+1998,1998-06-19,Quarter-finals,Germany,Iran,0,0,Draw,426
+1998,1998-06-19,Quarter-finals,Australia,Denmark,0,0,Draw,427
+1998,1998-06-20,Group Stage,Denmark,Cameroon,2,2,Draw,428
+1998,1998-06-20,Group Stage,Argentina,Iran,1,0,Argentina,429
+1998,1998-06-21,Round of 16,Switzerland,Brazil,1,1,Draw,430
+1998,1998-06-21,Group Stage,Spain,Iran,1,2,Iran,431
+1998,1998-06-21,Semi-finals,Portugal,USA,2,1,Portugal,432
+1998,1998-06-21,Group Stage,France,Brazil,0,2,Brazil,433
+1998,1998-06-21,Semi-finals,Switzerland,Spain,1,0,Switzerland,434
+1998,1998-06-21,Quarter-finals,Croatia,Algeria,1,1,Draw,435
+1998,1998-06-21,Group Stage,Cameroon,Costa Rica,0,1,Costa Rica,436
+1998,1998-06-22,Group Stage,France,Saudi Arabia,1,1,Draw,437
+1998,1998-06-23,Group Stage,Germany,Nigeria,1,0,Germany,438
+1998,1998-06-23,Group Stage,South Korea,Belgium,1,1,Draw,439
+1998,1998-06-24,Group Stage,Denmark,Spain,1,2,Spain,440
+1998,1998-06-25,Round of 16,Uruguay,Italy,2,1,Uruguay,441
+1998,1998-06-25,Group Stage,Denmark,Argentina,1,1,Draw,442
+1998,1998-06-25,Group Stage,Argentina,USA,1,2,USA,443
+1998,1998-06-25,Group Stage,Senegal,Cameroon,1,1,Draw,444
+1998,1998-06-25,Group Stage,Brazil,USA,1,1,Draw,445
+1998,1998-06-25,Group Stage,Switzerland,Sweden,1,0,Switzerland,446
+1998,1998-06-26,Group Stage,Uruguay,Costa Rica,0,3,Costa Rica,447
+1998,1998-06-27,Quarter-finals,Algeria,Argentina,1,0,Algeria,448
+2002,2002-06-10,Group Stage,Sweden,Portugal,0,1,Portugal,449
+2002,2002-06-10,Round of 16,Saudi Arabia,USA,1,1,Draw,450
+2002,2002-06-11,Quarter-finals,USA,Spain,2,2,Draw,451
+2002,2002-06-11,Group Stage,USA,Australia,2,1,USA,452
+2002,2002-06-12,Group Stage,Denmark,Ghana,2,2,Draw,453
+2002,2002-06-13,Group Stage,Costa Rica,Denmark,0,1,Denmark,454
+2002,2002-06-13,Group Stage,Morocco,Argentina,1,2,Argentina,455
+2002,2002-06-13,Group Stage,Belgium,Saudi Arabia,1,2,Saudi Arabia,456
+2002,2002-06-13,Round of 16,Italy,Nigeria,0,2,Nigeria,457
+2002,2002-06-13,Group Stage,Senegal,Belgium,0,1,Belgium,458
+2002,2002-06-14,Semi-finals,Japan,Switzerland,1,1,Draw,459
+2002,2002-06-14,Semi-finals,Uruguay,Egypt,1,0,Uruguay,460
+2002,2002-06-15,Group Stage,Japan,Netherlands,1,0,Japan,461
+2002,2002-06-15,Group Stage,Cameroon,Uruguay,0,1,Uruguay,462
+2002,2002-06-15,Group Stage,Switzerland,Denmark,0,2,Denmark,463
+2002,2002-06-15,Round of 16,Senegal,Australia,1,1,Draw,464
+2002,2002-06-16,Group Stage,Germany,England,1,2,England,465
+2002,2002-06-16,Quarter-finals,France,Portugal,2,1,France,466
+2002,2002-06-16,Round of 16,Denmark,Brazil,0,1,Brazil,467
+2002,2002-06-16,Group Stage,Algeria,Belgium,1,1,Draw,468
+2002,2002-06-17,Group Stage,Ghana,Italy,1,1,Draw,469
+2002,2002-06-17,Group Stage,Australia,Netherlands,1,1,Draw,470
+2002,2002-06-17,Group Stage,Poland,Portugal,0,1,Portugal,471
+2002,2002-06-18,Group Stage,Cameroon,Italy,1,2,Italy,472
+2002,2002-06-18,Group Stage,Costa Rica,Switzerland,2,3,Switzerland,473
+2002,2002-06-18,Group Stage,Mexico,Croatia,1,1,Draw,474
+2002,2002-06-18,Quarter-finals,France,Australia,1,1,Draw,475
+2002,2002-06-19,Group Stage,Belgium,Japan,0,1,Japan,476
+2002,2002-06-19,Group Stage,France,Saudi Arabia,1,1,Draw,477
+2002,2002-06-19,Group Stage,Belgium,Germany,1,3,Germany,478
+2002,2002-06-20,Quarter-finals,Spain,Nigeria,1,1,Draw,479
+2002,2002-06-20,Group Stage,USA,Belgium,2,1,USA,480
+2002,2002-06-20,Group Stage,Ghana,Saudi Arabia,1,2,Saudi Arabia,481
+2002,2002-06-20,Round of 16,Mexico,Argentina,2,0,Mexico,482
+2002,2002-06-21,Group Stage,Morocco,Mexico,0,0,Draw,483
+2002,2002-06-21,Group Stage,Netherlands,Nigeria,1,2,Nigeria,484
+2002,2002-06-21,Group Stage,Mexico,USA,1,0,Mexico,485
+2002,2002-06-21,Group Stage,Nigeria,USA,2,1,Nigeria,486
+2002,2002-06-22,Group Stage,Japan,Morocco,3,1,Japan,487
+2002,2002-06-22,Group Stage,Brazil,Poland,0,0,Draw,488
+2002,2002-06-22,Group Stage,Croatia,Costa Rica,2,0,Croatia,489
+2002,2002-06-23,Group Stage,South Korea,Brazil,0,1,Brazil,490
+2002,2002-06-23,Group Stage,England,Argentina,1,2,Argentina,491
+2002,2002-06-23,Group Stage,Sweden,South Korea,1,1,Draw,492
+2002,2002-06-23,Round of 16,Croatia,England,1,1,Draw,493
+2002,2002-06-24,Group Stage,Cameroon,France,1,1,Draw,494
+2002,2002-06-24,Group Stage,Senegal,Switzerland,0,1,Switzerland,495
+2002,2002-06-24,Group Stage,Nigeria,France,2,0,Nigeria,496
+2002,2002-06-24,Group Stage,Sweden,Nigeria,2,1,Sweden,497
+2002,2002-06-24,Group Stage,Senegal,Iran,1,1,Draw,498
+2002,2002-06-24,Round of 16,USA,South Korea,1,0,USA,499
+2002,2002-06-25,Third Place,Tunisia,Iran,1,1,Draw,500
+2002,2002-06-25,Final,Cameroon,Sweden,2,2,Draw,501
+2002,2002-06-25,Group Stage,South Korea,Cameroon,2,0,South Korea,502
+2002,2002-06-25,Group Stage,England,Brazil,2,2,Draw,503
+2002,2002-06-25,Group Stage,Tunisia,Costa Rica,0,2,Costa Rica,504
+2002,2002-06-25,Group Stage,Costa Rica,Germany,2,2,Draw,505
+2002,2002-06-25,Round of 16,Iran,Algeria,0,1,Algeria,506
+2002,2002-06-26,Group Stage,Germany,Morocco,1,1,Draw,507
+2002,2002-06-26,Group Stage,Iran,Switzerland,2,2,Draw,508
+2002,2002-06-26,Group Stage,Netherlands,Australia,3,2,Netherlands,509
+2002,2002-06-26,Group Stage,Spain,USA,2,1,Spain,510
+2002,2002-06-27,Group Stage,Brazil,Japan,1,0,Brazil,511
+2002,2002-06-27,Group Stage,Tunisia,Australia,0,2,Australia,512
+2006,2006-06-10,Group Stage,Belgium,Mexico,2,1,Belgium,513
+2006,2006-06-10,Round of 16,Portugal,England,0,1,England,514
+2006,2006-06-10,Group Stage,Switzerland,England,2,1,Switzerland,515
+2006,2006-06-11,Group Stage,Japan,Argentina,2,2,Draw,516
+2006,2006-06-11,Group Stage,Sweden,USA,1,3,USA,517
+2006,2006-06-11,Group Stage,Sweden,Poland,2,0,Sweden,518
+2006,2006-06-11,Group Stage,Portugal,Ghana,1,3,Ghana,519
+2006,2006-06-11,Group Stage,USA,Algeria,0,0,Draw,520
+2006,2006-06-12,Group Stage,Senegal,Costa Rica,0,3,Costa Rica,521
+2006,2006-06-13,Round of 16,Denmark,Iran,1,2,Iran,522
+2006,2006-06-13,Group Stage,Brazil,Japan,2,1,Brazil,523
+2006,2006-06-13,Round of 16,Egypt,Tunisia,2,0,Egypt,524
+2006,2006-06-13,Semi-finals,Uruguay,Egypt,1,1,Draw,525
+2006,2006-06-13,Group Stage,Algeria,Croatia,1,1,Draw,526
+2006,2006-06-14,Group Stage,Croatia,Cameroon,1,1,Draw,527
+2006,2006-06-14,Group Stage,Denmark,Belgium,1,1,Draw,528
+2006,2006-06-14,Group Stage,Italy,Senegal,2,2,Draw,529
+2006,2006-06-14,Round of 16,Italy,Costa Rica,0,1,Costa Rica,530
+2006,2006-06-14,Group Stage,Argentina,Denmark,0,1,Denmark,531
+2006,2006-06-14,Group Stage,Argentina,Australia,2,2,Draw,532
+2006,2006-06-15,Group Stage,Germany,Nigeria,1,1,Draw,533
+2006,2006-06-15,Round of 16,Egypt,Spain,2,1,Egypt,534
+2006,2006-06-15,Group Stage,Tunisia,Cameroon,1,1,Draw,535
+2006,2006-06-15,Group Stage,Algeria,France,3,1,Algeria,536
+2006,2006-06-15,Group Stage,Denmark,Australia,1,1,Draw,537
+2006,2006-06-16,Group Stage,Mexico,Ghana,1,2,Ghana,538
+2006,2006-06-16,Group Stage,USA,Costa Rica,0,2,Costa Rica,539
+2006,2006-06-17,Group Stage,Switzerland,Netherlands,3,2,Switzerland,540
+2006,2006-06-17,Group Stage,Uruguay,England,1,3,England,541
+2006,2006-06-17,Group Stage,Iran,Cameroon,1,1,Draw,542
+2006,2006-06-18,Group Stage,Japan,Poland,2,3,Poland,543
+2006,2006-06-18,Third Place,Argentina,Portugal,0,2,Portugal,544
+2006,2006-06-18,Quarter-finals,Morocco,Italy,1,0,Morocco,545
+2006,2006-06-18,Quarter-finals,Ghana,Argentina,2,1,Ghana,546
+2006,2006-06-19,Group Stage,Costa Rica,Uruguay,1,0,Costa Rica,547
+2006,2006-06-19,Group Stage,Uruguay,Saudi Arabia,2,2,Draw,548
+2006,2006-06-19,Group Stage,Saudi Arabia,Brazil,1,1,Draw,549
+2006,2006-06-20,Group Stage,France,Netherlands,2,1,France,550
+2006,2006-06-20,Group Stage,Japan,Argentina,2,1,Japan,551
+2006,2006-06-20,Group Stage,Belgium,Tunisia,2,0,Belgium,552
+2006,2006-06-20,Semi-finals,Iran,Saudi Arabia,0,1,Saudi Arabia,553
+2006,2006-06-21,Group Stage,Ghana,Senegal,1,2,Senegal,554
+2006,2006-06-21,Quarter-finals,Morocco,Poland,1,1,Draw,555
+2006,2006-06-21,Group Stage,Sweden,Italy,2,1,Sweden,556
+2006,2006-06-21,Group Stage,France,Croatia,3,1,France,557
+2006,2006-06-21,Round of 16,Tunisia,Netherlands,1,1,Draw,558
+2006,2006-06-22,Group Stage,USA,Argentina,1,1,Draw,559
+2006,2006-06-22,Group Stage,Ghana,Belgium,2,1,Ghana,560
+2006,2006-06-22,Quarter-finals,South Korea,Saudi Arabia,2,0,South Korea,561
+2006,2006-06-23,Group Stage,Australia,Costa Rica,1,2,Costa Rica,562
+2006,2006-06-23,Group Stage,Denmark,Netherlands,2,0,Denmark,563
+2006,2006-06-23,Round of 16,Iran,Senegal,1,0,Iran,564
+2006,2006-06-24,Group Stage,Egypt,Australia,3,1,Egypt,565
+2006,2006-06-24,Final,South Korea,Spain,1,0,South Korea,566
+2006,2006-06-25,Group Stage,Portugal,Nigeria,1,1,Draw,567
+2006,2006-06-25,Group Stage,Argentina,Algeria,0,1,Algeria,568
+2006,2006-06-25,Group Stage,Switzerland,Egypt,2,1,Switzerland,569
+2006,2006-06-25,Round of 16,Saudi Arabia,Senegal,0,0,Draw,570
+2006,2006-06-26,Group Stage,Italy,Netherlands,3,1,Italy,571
+2006,2006-06-26,Group Stage,Spain,Sweden,1,2,Sweden,572
+2006,2006-06-26,Group Stage,Argentina,Belgium,1,2,Belgium,573
+2006,2006-06-27,Group Stage,Japan,Mexico,1,1,Draw,574
+2006,2006-06-27,Group Stage,Uruguay,Costa Rica,0,2,Costa Rica,575
+2006,2006-06-27,Group Stage,Tunisia,France,1,2,France,576
+2010,2010-06-10,Group Stage,Cameroon,Portugal,1,0,Cameroon,577
+2010,2010-06-10,Group Stage,Netherlands,Switzerland,1,0,Netherlands,578
+2010,2010-06-10,Final,Switzerland,Mexico,2,0,Switzerland,579
+2010,2010-06-10,Group Stage,Costa Rica,Australia,1,0,Costa Rica,580
+2010,2010-06-11,Group Stage,USA,Uruguay,2,0,USA,581
+2010,2010-06-11,Group Stage,Australia,England,0,1,England,582
+2010,2010-06-11,Group Stage,Portugal,Morocco,3,1,Portugal,583
+2010,2010-06-11,Group Stage,Japan,Iran,1,3,Iran,584
+2010,2010-06-11,Round of 16,Cameroon,Netherlands,0,1,Netherlands,585
+2010,2010-06-11,Group Stage,Sweden,Spain,2,1,Sweden,586
+2010,2010-06-11,Group Stage,Belgium,Mexico,1,2,Mexico,587
+2010,2010-06-12,Semi-finals,Spain,Netherlands,2,2,Draw,588
+2010,2010-06-12,Group Stage,Tunisia,Cameroon,2,2,Draw,589
+2010,2010-06-12,Round of 16,Uruguay,Sweden,1,2,Sweden,590
+2010,2010-06-12,Group Stage,Spain,Egypt,0,1,Egypt,591
+2010,2010-06-12,Group Stage,Denmark,Cameroon,2,0,Denmark,592
+2010,2010-06-13,Group Stage,Nigeria,Iran,3,2,Nigeria,593
+2010,2010-06-13,Group Stage,Egypt,Saudi Arabia,1,0,Egypt,594
+2010,2010-06-13,Group Stage,Morocco,Nigeria,1,1,Draw,595
+2010,2010-06-13,Group Stage,Australia,Denmark,1,0,Australia,596
+2010,2010-06-14,Group Stage,Brazil,Costa Rica,2,2,Draw,597
+2010,2010-06-14,Group Stage,Ghana,Cameroon,1,3,Cameroon,598
+2010,2010-06-15,Group Stage,Sweden,Costa Rica,2,0,Sweden,599
+2010,2010-06-15,Group Stage,Switzerland,Germany,0,1,Germany,600
+2010,2010-06-15,Group Stage,Saudi Arabia,Netherlands,1,2,Netherlands,601
+2010,2010-06-15,Group Stage,Germany,Sweden,0,1,Sweden,602
+2010,2010-06-16,Group Stage,Cameroon,Uruguay,3,2,Cameroon,603
+2010,2010-06-16,Third Place,Australia,USA,1,1,Draw,604
+2010,2010-06-16,Round of 16,Croatia,Argentina,0,1,Argentina,605
+2010,2010-06-17,Round of 16,South Korea,Italy,0,2,Italy,606
+2010,2010-06-18,Group Stage,France,Saudi Arabia,0,2,Saudi Arabia,607
+2010,2010-06-18,Group Stage,Nigeria,Sweden,3,1,Nigeria,608
+2010,2010-06-19,Quarter-finals,Saudi Arabia,Uruguay,0,0,Draw,609
+2010,2010-06-19,Quarter-finals,USA,Japan,0,1,Japan,610
+2010,2010-06-20,Group Stage,Switzerland,Australia,3,2,Switzerland,611
+2010,2010-06-20,Round of 16,Senegal,Croatia,1,0,Senegal,612
+2010,2010-06-20,Round of 16,Brazil,Croatia,0,1,Croatia,613
+2010,2010-06-20,Group Stage,Australia,Nigeria,1,3,Nigeria,614
+2010,2010-06-20,Group Stage,Iran,Algeria,1,1,Draw,615
+2010,2010-06-20,Group Stage,Spain,Ghana,1,2,Ghana,616
+2010,2010-06-21,Group Stage,Cameroon,Senegal,1,1,Draw,617
+2010,2010-06-21,Round of 16,Saudi Arabia,Tunisia,2,2,Draw,618
+2010,2010-06-22,Group Stage,Saudi Arabia,England,1,1,Draw,619
+2010,2010-06-22,Quarter-finals,Denmark,Ghana,0,1,Ghana,620
+2010,2010-06-22,Quarter-finals,Sweden,Belgium,1,0,Sweden,621
+2010,2010-06-23,Group Stage,Germany,Brazil,1,1,Draw,622
+2010,2010-06-23,Group Stage,Ghana,Denmark,3,0,Ghana,623
+2010,2010-06-23,Group Stage,Iran,Poland,0,2,Poland,624
+2010,2010-06-23,Semi-finals,Senegal,Germany,1,1,Draw,625
+2010,2010-06-23,Group Stage,Denmark,France,2,3,France,626
+2010,2010-06-23,Group Stage,Ghana,Belgium,3,1,Ghana,627
+2010,2010-06-23,Group Stage,Belgium,Senegal,1,0,Belgium,628
+2010,2010-06-23,Round of 16,Ghana,Costa Rica,0,1,Costa Rica,629
+2010,2010-06-24,Group Stage,Uruguay,Germany,2,2,Draw,630
+2010,2010-06-25,Group Stage,Germany,Uruguay,0,1,Uruguay,631
+2010,2010-06-25,Group Stage,Spain,England,1,0,Spain,632
+2010,2010-06-25,Group Stage,USA,Nigeria,2,0,USA,633
+2010,2010-06-25,Group Stage,Germany,Portugal,2,3,Portugal,634
+2010,2010-06-25,Group Stage,Egypt,Spain,0,1,Spain,635
+2010,2010-06-26,Group Stage,Saudi Arabia,Switzerland,1,2,Switzerland,636
+2010,2010-06-26,Group Stage,Italy,Spain,2,0,Italy,637
+2010,2010-06-27,Group Stage,Mexico,Croatia,3,2,Mexico,638
+2010,2010-06-27,Group Stage,USA,Spain,1,1,Draw,639
+2010,2010-06-27,Group Stage,Morocco,Germany,2,3,Germany,640
+2014,2014-06-10,Group Stage,Argentina,Senegal,0,0,Draw,641
+2014,2014-06-10,Group Stage,Belgium,Japan,2,2,Draw,642
+2014,2014-06-10,Quarter-finals,Croatia,Saudi Arabia,1,0,Croatia,643
+2014,2014-06-11,Group Stage,England,Mexico,1,1,Draw,644
+2014,2014-06-11,Round of 16,Tunisia,Spain,2,0,Tunisia,645
+2014,2014-06-11,Group Stage,Brazil,Japan,0,3,Japan,646
+2014,2014-06-11,Round of 16,Portugal,Cameroon,1,1,Draw,647
+2014,2014-06-12,Quarter-finals,Morocco,Mexico,1,0,Morocco,648
+2014,2014-06-12,Group Stage,Argentina,Portugal,1,0,Argentina,649
+2014,2014-06-12,Group Stage,Argentina,Italy,0,1,Italy,650
+2014,2014-06-13,Group Stage,Denmark,Saudi Arabia,0,2,Saudi Arabia,651
+2014,2014-06-13,Group Stage,South Korea,Egypt,0,2,Egypt,652
+2014,2014-06-14,Group Stage,USA,Nigeria,1,1,Draw,653
+2014,2014-06-14,Group Stage,Japan,Switzerland,0,2,Switzerland,654
+2014,2014-06-15,Group Stage,Netherlands,Sweden,0,2,Sweden,655
+2014,2014-06-15,Group Stage,Portugal,Senegal,2,1,Portugal,656
+2014,2014-06-15,Round of 16,Brazil,England,1,1,Draw,657
+2014,2014-06-16,Group Stage,Uruguay,Germany,1,0,Uruguay,658
+2014,2014-06-16,Group Stage,Argentina,Switzerland,1,3,Switzerland,659
+2014,2014-06-16,Group Stage,South Korea,Sweden,0,1,Sweden,660
+2014,2014-06-16,Group Stage,Netherlands,Cameroon,1,2,Cameroon,661
+2014,2014-06-16,Group Stage,Poland,USA,1,1,Draw,662
+2014,2014-06-17,Group Stage,Croatia,Portugal,3,2,Croatia,663
+2014,2014-06-18,Group Stage,Egypt,Cameroon,2,2,Draw,664
+2014,2014-06-18,Group Stage,Poland,Nigeria,0,1,Nigeria,665
+2014,2014-06-18,Group Stage,Mexico,Germany,1,1,Draw,666
+2014,2014-06-18,Group Stage,Egypt,Denmark,1,0,Egypt,667
+2014,2014-06-19,Third Place,Mexico,Ghana,1,0,Mexico,668
+2014,2014-06-19,Group Stage,Australia,Egypt,2,0,Australia,669
+2014,2014-06-19,Group Stage,Australia,Denmark,2,2,Draw,670
+2014,2014-06-20,Group Stage,Saudi Arabia,Mexico,2,0,Saudi Arabia,671
+2014,2014-06-20,Final,Algeria,Australia,1,1,Draw,672
+2014,2014-06-21,Semi-finals,Nigeria,Denmark,0,0,Draw,673
+2014,2014-06-21,Group Stage,Sweden,England,3,0,Sweden,674
+2014,2014-06-21,Group Stage,France,Senegal,2,2,Draw,675
+2014,2014-06-21,Round of 16,South Korea,Denmark,0,1,Denmark,676
+2014,2014-06-21,Group Stage,Japan,Egypt,0,1,Egypt,677
+2014,2014-06-22,Group Stage,Portugal,Denmark,1,1,Draw,678
+2014,2014-06-22,Round of 16,France,Netherlands,2,2,Draw,679
+2014,2014-06-22,Group Stage,Nigeria,France,1,3,France,680
+2014,2014-06-22,Group Stage,Brazil,Argentina,0,1,Argentina,681
+2014,2014-06-23,Group Stage,Croatia,Nigeria,1,3,Nigeria,682
+2014,2014-06-23,Group Stage,Brazil,South Korea,1,1,Draw,683
+2014,2014-06-23,Group Stage,Croatia,Morocco,1,3,Morocco,684
+2014,2014-06-23,Round of 16,Argentina,Italy,0,2,Italy,685
+2014,2014-06-24,Semi-finals,Croatia,Poland,1,0,Croatia,686
+2014,2014-06-24,Group Stage,Netherlands,Italy,1,0,Netherlands,687
+2014,2014-06-24,Quarter-finals,Australia,Switzerland,0,1,Switzerland,688
+2014,2014-06-24,Group Stage,Morocco,Ghana,3,2,Morocco,689
+2014,2014-06-24,Group Stage,Uruguay,Japan,1,3,Japan,690
+2014,2014-06-24,Group Stage,Italy,Brazil,3,1,Italy,691
+2014,2014-06-25,Group Stage,Switzerland,Sweden,0,0,Draw,692
+2014,2014-06-25,Round of 16,Morocco,Iran,2,0,Morocco,693
+2014,2014-06-25,Group Stage,Tunisia,USA,2,1,Tunisia,694
+2014,2014-06-25,Group Stage,France,USA,1,2,USA,695
+2014,2014-06-25,Group Stage,Switzerland,Uruguay,1,1,Draw,696
+2014,2014-06-25,Quarter-finals,Switzerland,Egypt,1,2,Egypt,697
+2014,2014-06-26,Group Stage,Algeria,Costa Rica,0,2,Costa Rica,698
+2014,2014-06-26,Group Stage,France,Switzerland,3,1,France,699
+2014,2014-06-26,Group Stage,Tunisia,Sweden,1,2,Sweden,700
+2014,2014-06-27,Round of 16,Morocco,South Korea,1,1,Draw,701
+2014,2014-06-27,Group Stage,Netherlands,Morocco,2,1,Netherlands,702
+2014,2014-06-27,Group Stage,Cameroon,Portugal,1,1,Draw,703
+2014,2014-06-27,Group Stage,Germany,Algeria,2,1,Germany,704
+2018,2018-06-10,Group Stage,Portugal,Germany,0,0,Draw,705
+2018,2018-06-10,Group Stage,Brazil,USA,1,0,Brazil,706
+2018,2018-06-10,Group Stage,Ghana,Uruguay,2,0,Ghana,707
+2018,2018-06-10,Group Stage,Belgium,Sweden,2,1,Belgium,708
+2018,2018-06-11,Group Stage,Brazil,Algeria,1,2,Algeria,709
+2018,2018-06-12,Semi-finals,Uruguay,Japan,1,1,Draw,710
+2018,2018-06-12,Group Stage,France,Costa Rica,1,2,Costa Rica,711
+2018,2018-06-12,Round of 16,Iran,Senegal,1,1,Draw,712
+2018,2018-06-13,Group Stage,Switzerland,Iran,0,0,Draw,713
+2018,2018-06-14,Third Place,Iran,Ghana,1,2,Ghana,714
+2018,2018-06-14,Group Stage,Tunisia,Egypt,1,1,Draw,715
+2018,2018-06-14,Quarter-finals,Sweden,Netherlands,1,1,Draw,716
+2018,2018-06-15,Group Stage,Germany,Poland,1,0,Germany,717
+2018,2018-06-15,Group Stage,Senegal,Germany,2,0,Senegal,718
+2018,2018-06-15,Group Stage,Saudi Arabia,Netherlands,1,2,Netherlands,719
+2018,2018-06-15,Round of 16,Saudi Arabia,Iran,1,2,Iran,720
+2018,2018-06-15,Round of 16,Iran,Uruguay,1,0,Iran,721
+2018,2018-06-16,Round of 16,Spain,USA,1,1,Draw,722
+2018,2018-06-16,Quarter-finals,France,Sweden,0,2,Sweden,723
+2018,2018-06-16,Group Stage,Brazil,Argentina,1,2,Argentina,724
+2018,2018-06-16,Group Stage,Iran,Italy,3,2,Iran,725
+2018,2018-06-16,Group Stage,Tunisia,England,0,3,England,726
+2018,2018-06-16,Group Stage,Algeria,Senegal,1,0,Algeria,727
+2018,2018-06-16,Group Stage,Morocco,Tunisia,1,2,Tunisia,728
+2018,2018-06-17,Group Stage,Saudi Arabia,Ghana,1,3,Ghana,729
+2018,2018-06-17,Group Stage,Portugal,Morocco,1,2,Morocco,730
+2018,2018-06-17,Group Stage,Denmark,Cameroon,0,0,Draw,731
+2018,2018-06-17,Quarter-finals,South Korea,Spain,2,0,South Korea,732
+2018,2018-06-17,Group Stage,Poland,Italy,0,2,Italy,733
+2018,2018-06-17,Group Stage,USA,Australia,1,2,Australia,734
+2018,2018-06-18,Group Stage,Poland,England,0,1,England,735
+2018,2018-06-18,Group Stage,Poland,Croatia,3,1,Poland,736
+2018,2018-06-18,Group Stage,Portugal,Switzerland,1,3,Switzerland,737
+2018,2018-06-18,Group Stage,Senegal,Egypt,1,1,Draw,738
+2018,2018-06-20,Group Stage,Denmark,Uruguay,1,1,Draw,739
+2018,2018-06-20,Group Stage,Saudi Arabia,Nigeria,2,1,Saudi Arabia,740
+2018,2018-06-20,Group Stage,Denmark,Argentina,1,0,Denmark,741
+2018,2018-06-20,Group Stage,USA,Japan,1,1,Draw,742
+2018,2018-06-20,Group Stage,Denmark,Uruguay,2,0,Denmark,743
+2018,2018-06-21,Group Stage,Algeria,Germany,1,1,Draw,744
+2018,2018-06-22,Group Stage,Argentina,Italy,3,1,Argentina,745
+2018,2018-06-23,Round of 16,USA,Costa Rica,1,0,USA,746
+2018,2018-06-23,Group Stage,Uruguay,Ghana,2,3,Ghana,747
+2018,2018-06-23,Group Stage,Costa Rica,England,0,0,Draw,748
+2018,2018-06-23,Group Stage,Uruguay,Senegal,2,0,Uruguay,749
+2018,2018-06-23,Group Stage,France,England,1,2,England,750
+2018,2018-06-23,Group Stage,Costa Rica,Brazil,1,1,Draw,751
+2018,2018-06-23,Group Stage,Australia,Belgium,1,1,Draw,752
+2018,2018-06-23,Final,Argentina,Mexico,1,0,Argentina,753
+2018,2018-06-23,Group Stage,Denmark,Sweden,0,1,Sweden,754
+2018,2018-06-24,Group Stage,Iran,Mexico,0,1,Mexico,755
+2018,2018-06-24,Round of 16,Croatia,Portugal,1,2,Portugal,756
+2018,2018-06-25,Group Stage,England,Uruguay,2,0,England,757
+2018,2018-06-26,Group Stage,Japan,Mexico,0,1,Mexico,758
+2018,2018-06-26,Group Stage,South Korea,Morocco,2,1,South Korea,759
+2018,2018-06-26,Group Stage,Brazil,Egypt,1,0,Brazil,760
+2018,2018-06-27,Group Stage,USA,Uruguay,2,0,USA,761
+2018,2018-06-27,Semi-finals,Algeria,England,0,1,England,762
+2018,2018-06-27,Group Stage,Netherlands,Poland,0,3,Poland,763
+2018,2018-06-27,Quarter-finals,Brazil,Denmark,0,2,Denmark,764
+2018,2018-06-27,Round of 16,Uruguay,Saudi Arabia,1,1,Draw,765
+2018,2018-06-27,Group Stage,France,Australia,0,2,Australia,766
+2018,2018-06-27,Round of 16,Germany,South Korea,1,1,Draw,767
+2018,2018-06-27,Group Stage,France,Italy,1,2,Italy,768
+2022,2022-11-10,Group Stage,Netherlands,Sweden,0,3,Sweden,769
+2022,2022-11-10,Group Stage,Portugal,Cameroon,2,1,Portugal,770
+2022,2022-11-10,Round of 16,Ghana,Mexico,1,1,Draw,771
+2022,2022-11-11,Group Stage,Poland,USA,2,1,Poland,772
+2022,2022-11-11,Group Stage,Italy,Germany,0,2,Germany,773
+2022,2022-11-12,Group Stage,Poland,Senegal,2,1,Poland,774
+2022,2022-11-12,Group Stage,England,Japan,0,1,Japan,775
+2022,2022-11-12,Group Stage,England,Switzerland,3,3,Draw,776
+2022,2022-11-12,Group Stage,South Korea,Brazil,0,1,Brazil,777
+2022,2022-11-12,Group Stage,Portugal,Australia,1,1,Draw,778
+2022,2022-11-12,Semi-finals,Croatia,Denmark,0,1,Denmark,779
+2022,2022-11-13,Group Stage,Netherlands,Argentina,2,0,Netherlands,780
+2022,2022-11-13,Group Stage,Cameroon,South Korea,1,0,Cameroon,781
+2022,2022-11-13,Group Stage,Japan,Argentina,1,0,Japan,782
+2022,2022-11-14,Group Stage,Morocco,USA,1,3,USA,783
+2022,2022-11-15,Group Stage,USA,Saudi Arabia,1,1,Draw,784
+2022,2022-11-15,Quarter-finals,Switzerland,Spain,1,0,Switzerland,785
+2022,2022-11-15,Quarter-finals,Japan,Australia,2,1,Japan,786
+2022,2022-11-15,Group Stage,Saudi Arabia,Denmark,0,2,Denmark,787
+2022,2022-11-16,Group Stage,Cameroon,Switzerland,1,2,Switzerland,788
+2022,2022-11-16,Group Stage,Poland,Saudi Arabia,3,2,Poland,789
+2022,2022-11-16,Group Stage,Iran,Argentina,2,1,Iran,790
+2022,2022-11-16,Group Stage,Japan,Spain,1,1,Draw,791
+2022,2022-11-16,Group Stage,France,Croatia,1,1,Draw,792
+2022,2022-11-17,Group Stage,Denmark,Brazil,2,3,Brazil,793
+2022,2022-11-17,Group Stage,Senegal,Ghana,2,3,Ghana,794
+2022,2022-11-17,Third Place,Belgium,Argentina,1,2,Argentina,795
+2022,2022-11-18,Group Stage,Belgium,Senegal,0,1,Senegal,796
+2022,2022-11-18,Group Stage,Brazil,Italy,0,1,Italy,797
+2022,2022-11-18,Group Stage,Australia,Egypt,1,1,Draw,798
+2022,2022-11-18,Round of 16,Poland,Uruguay,1,2,Uruguay,799
+2022,2022-11-18,Group Stage,Brazil,Egypt,2,2,Draw,800
+2022,2022-11-18,Semi-finals,Germany,Croatia,1,0,Germany,801
+2022,2022-11-19,Group Stage,Australia,South Korea,1,0,Australia,802
+2022,2022-11-19,Group Stage,Ghana,Morocco,0,0,Draw,803
+2022,2022-11-19,Group Stage,Argentina,Saudi Arabia,2,1,Argentina,804
+2022,2022-11-19,Group Stage,England,Iran,2,0,England,805
+2022,2022-11-19,Group Stage,Brazil,Australia,1,0,Brazil,806
+2022,2022-11-19,Quarter-finals,Mexico,Costa Rica,1,1,Draw,807
+2022,2022-11-20,Group Stage,Australia,Argentina,3,3,Draw,808
+2022,2022-11-21,Group Stage,Croatia,Algeria,2,1,Croatia,809
+2022,2022-11-21,Group Stage,Nigeria,France,2,1,Nigeria,810
+2022,2022-11-22,Group Stage,Iran,Costa Rica,1,0,Iran,811
+2022,2022-11-22,Group Stage,Japan,Morocco,2,0,Japan,812
+2022,2022-11-22,Quarter-finals,South Korea,Egypt,1,2,Egypt,813
+2022,2022-11-23,Round of 16,Japan,South Korea,2,0,Japan,814
+2022,2022-11-23,Final,Algeria,Argentina,1,0,Algeria,815
+2022,2022-11-23,Group Stage,USA,Senegal,1,1,Draw,816
+2022,2022-11-24,Group Stage,Saudi Arabia,Australia,1,2,Australia,817
+2022,2022-11-24,Group Stage,Ghana,Italy,0,2,Italy,818
+2022,2022-11-24,Group Stage,Algeria,Germany,2,0,Algeria,819
+2022,2022-11-24,Group Stage,Spain,Australia,3,1,Spain,820
+2022,2022-11-24,Round of 16,Argentina,Nigeria,1,0,Argentina,821
+2022,2022-11-24,Round of 16,Portugal,Argentina,1,1,Draw,822
+2022,2022-11-25,Group Stage,Switzerland,Cameroon,2,2,Draw,823
+2022,2022-11-25,Round of 16,Switzerland,South Korea,1,1,Draw,824
+2022,2022-11-25,Round of 16,Italy,Ghana,2,0,Italy,825
+2022,2022-11-26,Group Stage,Mexico,Sweden,1,2,Sweden,826
+2022,2022-11-26,Round of 16,Iran,Cameroon,0,1,Cameroon,827
+2022,2022-11-26,Group Stage,Tunisia,Algeria,1,1,Draw,828
+2022,2022-11-26,Group Stage,Croatia,Sweden,3,2,Croatia,829
+2022,2022-11-26,Group Stage,Iran,Egypt,1,0,Iran,830
+2022,2022-11-27,Group Stage,Egypt,Nigeria,2,0,Egypt,831
+2022,2022-11-27,Group Stage,Nigeria,Argentina,3,3,Draw,832
