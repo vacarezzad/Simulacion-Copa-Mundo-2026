@@ -101,6 +101,15 @@ with st.sidebar:
         min_value=1.00, max_value=1.20, value=1.08, step=0.01,
         help="Multiplicador extra sobre el λ de ataque del actual campeón del mundo"
     )
+    rho_dc = st.slider(
+        "Corrección Dixon-Coles (ρ)",
+        min_value=0.00, max_value=0.20, value=0.08, step=0.01,
+        help=(
+            "ρ = 0 → Poisson puro (sin corrección). "
+            "ρ > 0 → más resultados 1-0 / 0-1, menos 0-0 / 1-1. "
+            "Estimado empíricamente en ~0.08 para mundiales."
+        ),
+    )
 
     st.divider()
 
@@ -161,7 +170,7 @@ with st.sidebar:
 # MAIN
 # ─────────────────────────────────────────────────────────────────────────────
 st.title("⚽ Simulador Monte Carlo — Copa del Mundo 2026")
-st.caption("Modelo Poisson (Dixon-Coles simplificado) | 48 equipos | 12 grupos | R32 → Final")
+st.caption("Modelo Poisson corregido (Dixon-Coles) | 48 equipos | 12 grupos | R32 → Final")
 
 df_clasif = cargar_datos()
 
@@ -188,6 +197,7 @@ if simular_btn:
         debutante_mode         = debutante_mode,
         n_simulaciones         = n_sims,
         seed                   = int(seed) if usar_semilla else None,
+        rho_dc                 = rho_dc,
     )
 
     usar_paralelo = n_workers > 1
@@ -614,6 +624,164 @@ def _mostrar_tab_partidos(escenarios, n_total, df_clasif, COLORES_CONF, GRUPOS_2
 
 
 # ─────────────────────────────────────────────────────────────────────────────
+# Tab bracket helpers
+# ─────────────────────────────────────────────────────────────────────────────
+
+def _construir_bracket_sf(escenarios, n_total):
+    """
+    Identifica los 4 equipos semifinalistas y sus bandos del bracket más probable.
+    Retorna (champion, finalist, sf1_rival, sf2_rival) o None si no hay datos.
+    """
+    if not escenarios.get('finales') or not escenarios.get('semifinales'):
+        return None
+
+    (champion, finalist), _ = escenarios['finales'].most_common(1)[0]
+
+    top_semis = escenarios['semifinales'].most_common(1)
+    if not top_semis:
+        return None
+
+    semis_frozenset, _ = top_semis[0]
+    losers = semis_frozenset - {champion, finalist}
+    if len(losers) != 2:
+        return None
+
+    # Identifica cuál loser estuvo en la misma SF que el campeón
+    semis_ko = escenarios.get('resultados_ko', {}).get('semis', {})
+    champ_semis = {
+        k: sum(v.values())
+        for k, v in semis_ko.items()
+        if champion in k
+    }
+    if champ_semis:
+        top_sf_key = max(champ_semis, key=champ_semis.get)
+        sf1_rival = top_sf_key[0] if top_sf_key[1] == champion else top_sf_key[1]
+        if sf1_rival not in losers:
+            sf1_rival = next(iter(losers))
+    else:
+        sf1_rival = next(iter(losers))
+
+    sf2_rival = next(l for l in losers if l != sf1_rival)
+    return champion, finalist, sf1_rival, sf2_rival
+
+
+def _crear_bracket_plotly(champion, finalist, sf1_rival, sf2_rival,
+                           conf_map, df_prob, COLORES_CONF):
+    """
+    Dibuja el bracket SF → Final → Campeón usando Plotly shapes + scatter lines.
+
+    Layout (3 columnas):
+      x=0.0 : los 4 equipos en sus SF de entrada
+      x=3.0 : los 2 SF ganadores (finalists)
+      x=6.0 : el campeón
+    """
+    BOX_W = 1.6
+    BOX_H = 0.45
+
+    X_LEFT, X_MID, X_RIGHT = 0.0, 3.0, 6.0
+
+    # Y-positions para los 4 slots de SF (par superior: sf1_rival + champion)
+    Y1 = 3.2    # sf1_rival (SF half A, arriba)
+    Y2 = 2.3    # champion  (SF half A, abajo)
+    Y3 = 1.1    # finalist  (SF half B, arriba)
+    Y4 = 0.2    # sf2_rival (SF half B, abajo)
+    YM1 = (Y1 + Y2) / 2   # 2.75 — SF half A winner
+    YM2 = (Y3 + Y4) / 2   # 0.65 — SF half B winner
+    YF  = (YM1 + YM2) / 2 # 1.70 — champion
+
+    def get_prob(team, col):
+        row = df_prob[df_prob['equipo'] == team]
+        return float(row[col].values[0]) if len(row) > 0 else 0.0
+
+    def get_color(team):
+        return COLORES_CONF.get(conf_map.get(team, ''), '#888888')
+
+    def hex_rgba(hex_color, alpha=0.22):
+        h = hex_color.lstrip('#')
+        r, g, b = int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16)
+        return f'rgba({r},{g},{b},{alpha})'
+
+    fig = go.Figure()
+    shapes, annotations = [], []
+
+    # Slots: (x_center, y_center, team, prob_col, is_champion_slot)
+    slots = [
+        (X_LEFT,  Y1,  sf1_rival, 'p_semis',   False),
+        (X_LEFT,  Y2,  champion,  'p_semis',   False),
+        (X_LEFT,  Y3,  finalist,  'p_semis',   False),
+        (X_LEFT,  Y4,  sf2_rival, 'p_semis',   False),
+        (X_MID,   YM1, champion,  'p_final',   False),
+        (X_MID,   YM2, finalist,  'p_final',   False),
+        (X_RIGHT, YF,  champion,  'p_campeon', True),
+    ]
+
+    for (xc, yc, team, pcol, is_champ) in slots:
+        color = get_color(team)
+        prob  = get_prob(team, pcol)
+        shapes.append(dict(
+            type='rect', xref='x', yref='y',
+            x0=xc - BOX_W/2, y0=yc - BOX_H/2,
+            x1=xc + BOX_W/2, y1=yc + BOX_H/2,
+            fillcolor=hex_rgba(color),
+            line=dict(color=color, width=3 if is_champ else 2),
+            layer='below',
+        ))
+        trophy = ' 🏆' if is_champ else ''
+        annotations.append(dict(
+            x=xc, y=yc,
+            text=f"<b>{team}{trophy}</b><br>{prob:.1%}",
+            showarrow=False,
+            font=dict(size=13 if is_champ else 11),
+            align='center', xanchor='center', yanchor='middle',
+        ))
+
+    # Bracket lines
+    LC, LW = '#777777', 1.5
+
+    def draw_bracket(ta_y, tb_y, x_from, x_to, winner_y):
+        xr = x_from + BOX_W / 2   # right edge of source boxes
+        xl = x_to   - BOX_W / 2   # left edge of destination box
+        xv = (xr + xl) / 2        # vertical junction x
+        # Bracket: ta horizontal + tb horizontal + vertical connector
+        fig.add_trace(go.Scatter(
+            x=[xr, xv, None, xr, xv, None, xv, xv],
+            y=[ta_y, ta_y, None, tb_y, tb_y, None, ta_y, tb_y],
+            mode='lines', line=dict(color=LC, width=LW),
+            showlegend=False, hoverinfo='skip',
+        ))
+        # Output line: junction midpoint → winner box
+        fig.add_trace(go.Scatter(
+            x=[xv, xl], y=[winner_y, winner_y],
+            mode='lines', line=dict(color=LC, width=LW),
+            showlegend=False, hoverinfo='skip',
+        ))
+
+    draw_bracket(Y1,  Y2,  X_LEFT, X_MID,  YM1)  # SF half A
+    draw_bracket(Y3,  Y4,  X_LEFT, X_MID,  YM2)  # SF half B
+    draw_bracket(YM1, YM2, X_MID,  X_RIGHT, YF)  # Final
+
+    # Column headers
+    for xh, lbl in [(X_LEFT, "Semifinales"), (X_MID, "Final"), (X_RIGHT, "Campeón")]:
+        annotations.append(dict(
+            x=xh, y=3.85, text=f"<b>{lbl}</b>",
+            showarrow=False, font=dict(size=13, color='#444'),
+            xanchor='center',
+        ))
+
+    fig.update_layout(
+        shapes=shapes, annotations=annotations,
+        xaxis=dict(range=[-1.2, 7.8], visible=False, fixedrange=True),
+        yaxis=dict(range=[-0.5, 4.3], visible=False, fixedrange=True),
+        height=440,
+        margin=dict(l=10, r=10, t=30, b=10),
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
+        showlegend=False,
+    )
+    return fig
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 # Resultados
 # ─────────────────────────────────────────────────────────────────────────────
 if st.session_state.resultados is not None:
@@ -622,10 +790,11 @@ if st.session_state.resultados is not None:
     config_usada = st.session_state.config_usada
     n_total     = escenarios['n']
 
-    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
         "🏆 Probabilidades",
         "🎯 Escenarios frecuentes",
         "⚽ Partidos frecuentes",
+        "🗂️ Bracket",
         "📊 Etapas",
         "🌍 Por confederación",
         "🔬 Datos",
@@ -808,8 +977,63 @@ if st.session_state.resultados is not None:
     with tab3:
         _mostrar_tab_partidos(escenarios, n_total, df_clasif, COLORES_CONF, GRUPOS_2026_REALES)
 
-    # ── Tab 4: Heatmap por etapa ──────────────────────────────────────────────
+    # ── Tab 4: Bracket ────────────────────────────────────────────────────────
     with tab4:
+        st.subheader("🗂️ Bracket esperado")
+
+        conf_map = df_clasif.set_index('equipo')['confederacion'].to_dict()
+        bracket  = _construir_bracket_sf(escenarios, n_total)
+
+        if bracket is None:
+            st.info("No hay suficientes datos. Ejecutá una simulación primero.")
+        else:
+            champion, finalist, sf1_rival, sf2_rival = bracket
+
+            p_final_scenario = escenarios['finales'].most_common(1)[0][1] / n_total
+            p_semis_scenario = escenarios['semifinales'].most_common(1)[0][1] / n_total
+            st.caption(
+                f"Construido a partir del escenario de Final más frecuente "
+                f"(**{champion}** 🆚 **{finalist}**, ocurre en el **{p_final_scenario:.1%}** de simulaciones) "
+                f"y la combinación de semifinalistas más común "
+                f"({p_semis_scenario:.1%} de simulaciones)."
+            )
+
+            fig_bracket = _crear_bracket_plotly(
+                champion, finalist, sf1_rival, sf2_rival,
+                conf_map, df, COLORES_CONF,
+            )
+            st.plotly_chart(fig_bracket, use_container_width=True)
+
+            # ── Heatmap de probabilidades QF → Campeón ───────────────────────
+            st.divider()
+            st.subheader("📊 Probabilidades por etapa — Top equipos")
+            n_heat = st.slider("Equipos a mostrar", 8, 24, 16, key="bracket_heat_n")
+            df_bh  = (
+                df.nlargest(n_heat, 'p_cuartos')
+                [['equipo', 'p_cuartos', 'p_semis', 'p_final', 'p_campeon']]
+                .rename(columns={
+                    'p_cuartos': 'Cuartos',
+                    'p_semis'  : 'Semis',
+                    'p_final'  : 'Final',
+                    'p_campeon': 'Campeón',
+                })
+            )
+            fig_bh = px.imshow(
+                df_bh.set_index('equipo')[['Cuartos', 'Semis', 'Final', 'Campeón']].values,
+                x=['Cuartos', 'Semis', 'Final', 'Campeón'],
+                y=df_bh.index.tolist(),
+                color_continuous_scale='Blues',
+                zmin=0, zmax=df_bh['Cuartos'].max(),
+                text_auto='.0%',
+                aspect='auto',
+                height=max(350, n_heat * 22),
+            )
+            fig_bh.update_coloraxes(colorbar_tickformat='.0%')
+            fig_bh.update_layout(margin=dict(l=10, r=10, t=10, b=20))
+            st.plotly_chart(fig_bh, use_container_width=True)
+
+    # ── Tab 5: Heatmap por etapa ──────────────────────────────────────────────
+    with tab5:
         st.subheader("Probabilidad de alcanzar cada etapa")
 
         cols_etapa = {
@@ -838,8 +1062,8 @@ if st.session_state.resultados is not None:
         fig2.update_layout(margin=dict(l=10, r=10, t=20, b=20))
         st.plotly_chart(fig2, use_container_width=True)
 
-    # ── Tab 5: Por confederación ──────────────────────────────────────────────
-    with tab5:
+    # ── Tab 6: Por confederación ──────────────────────────────────────────────
+    with tab6:
         st.subheader("Probabilidad acumulada por confederación")
 
         df_conf = (
@@ -867,8 +1091,8 @@ if st.session_state.resultados is not None:
             use_container_width=True,
         )
 
-    # ── Tab 6: Datos del modelo ───────────────────────────────────────────────
-    with tab6:
+    # ── Tab 7: Datos del modelo ───────────────────────────────────────────────
+    with tab7:
         st.subheader("Tabla completa de probabilidades")
 
         cols_show = {
@@ -908,6 +1132,7 @@ if st.session_state.resultados is not None:
             "beta_fifa"           : config_usada.beta_fifa,
             "base_goles"          : config_usada.base_goles,
             "factor_local"        : config_usada.factor_local,
+            "rho_dc"              : config_usada.rho_dc,
             "simular_tiempo_extra": config_usada.simular_tiempo_extra,
             "penalty_weight"      : config_usada.penalty_weight,
             "penalty_k"           : config_usada.penalty_k,

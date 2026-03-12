@@ -94,3 +94,10 @@ class SimConfig:
     # Semilla para reproducibilidad (None → aleatorio en cada corrida)
     # Streamlit: st.number_input(0, 9999) + checkbox "Usar semilla fija"
     seed: Optional[int] = 42
+
+    # ─── Dixon-Coles ──────────────────────────────────────────────────────────
+    # ρ > 0 → más resultados 1-0/0-1, menos 0-0/1-1 (empírico en mundiales)
+    # ρ = 0 → Poisson puro (sin corrección, comportamiento anterior)
+    # Rango recomendado: 0.00 – 0.20. Default empírico: ~0.08 para mundiales.
+    # Streamlit: st.slider(0.00, 0.20, step=0.01)
+    rho_dc: float = 0.08

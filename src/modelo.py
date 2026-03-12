@@ -77,6 +77,52 @@ def aplicar_bonus_campeon(
     return lam
 
 
+# ─── Corrección Dixon-Coles ──────────────────────────────────────────────────
+
+def _simular_dc(
+    lam_a: float,
+    lam_b: float,
+    rho: float,
+    rng: np.random.Generator,
+) -> Tuple[int, int]:
+    """
+    Muestrea (ga, gb) de la distribución Poisson conjunta corregida por
+    Dixon-Coles (1997) mediante rejection sampling.
+
+    La corrección τ(ga, gb) ajusta solo los marcadores bajos (ga, gb ≤ 1):
+        τ(0,0) = 1 − λ_a × λ_b × ρ
+        τ(1,0) = 1 + λ_b × ρ
+        τ(0,1) = 1 + λ_a × ρ
+        τ(1,1) = 1 − ρ
+        τ(x,y) = 1   si x ≥ 2 o y ≥ 2
+
+    Para ρ ≈ 0.08 y λ ≈ 1.35, M ≈ 1.10 → eficiencia > 90 %.
+    """
+    tau_00 = 1.0 - lam_a * lam_b * rho
+    tau_10 = 1.0 + lam_b * rho
+    tau_01 = 1.0 + lam_a * rho
+    tau_11 = 1.0 - rho
+    M = max(tau_00, tau_10, tau_01, tau_11, 1.0)
+
+    while True:
+        ga = int(rng.poisson(lam_a))
+        gb = int(rng.poisson(lam_b))
+
+        if ga > 1 or gb > 1:
+            tau = 1.0
+        elif ga == 0 and gb == 0:
+            tau = tau_00
+        elif ga == 1 and gb == 0:
+            tau = tau_10
+        elif ga == 0 and gb == 1:
+            tau = tau_01
+        else:                        # ga == 1 and gb == 1
+            tau = tau_11
+
+        if rng.random() < tau / M:
+            return ga, gb
+
+
 # ─── Simulación de 90 minutos ─────────────────────────────────────────────────
 
 def simular_partido(
@@ -114,8 +160,11 @@ def simular_partido(
     lam_a = aplicar_bonus_campeon(equipo_a, lam_a, config)
     lam_b = aplicar_bonus_campeon(equipo_b, lam_b, config)
 
-    goles_a = int(rng.poisson(lam_a))
-    goles_b = int(rng.poisson(lam_b))
+    if config.rho_dc == 0.0:
+        goles_a = int(rng.poisson(lam_a))
+        goles_b = int(rng.poisson(lam_b))
+    else:
+        goles_a, goles_b = _simular_dc(lam_a, lam_b, config.rho_dc, rng)
 
     return goles_a, goles_b
 
