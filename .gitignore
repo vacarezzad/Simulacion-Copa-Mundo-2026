@@ -49,3 +49,8 @@ htmlcov/
 # ─── Logs y temporales ────────────────────────────────────────────────────────
 *.log
 *.tmp
+
+# ─── Excel temporales (archivos bloqueados por Office) ────────────────────────
+~$*.xlsx
+~$*.xls
+~$*.docx

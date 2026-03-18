@@ -14,6 +14,8 @@ import numpy as np
 import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
+import plotly.io as pio
+import streamlit.components.v1 as components
 from pathlib import Path
 from collections import Counter
 from itertools import combinations
@@ -627,153 +629,305 @@ def _mostrar_tab_partidos(escenarios, n_total, df_clasif, COLORES_CONF, GRUPOS_2
 # Tab bracket helpers
 # ─────────────────────────────────────────────────────────────────────────────
 
-def _construir_bracket_sf(escenarios, n_total):
+def _crear_bracket_full(escenarios, df_prob, COLORES_CONF, conf_map):
     """
-    Identifica los 4 equipos semifinalistas y sus bandos del bracket más probable.
-    Retorna (champion, finalist, sf1_rival, sf2_rival) o None si no hay datos.
+    Bracket visual completo desde R32 hasta el Campeón.
+
+    Dos mitades simétricas (izq: R32 slots 0-7, der: slots 8-15) que
+    convergen en el centro (Final → Campeón).
     """
-    if not escenarios.get('finales') or not escenarios.get('semifinales'):
+    bracket_slots = escenarios.get('bracket_slots', {})
+    if not bracket_slots or not bracket_slots.get('r32'):
         return None
 
-    (champion, finalist), _ = escenarios['finales'].most_common(1)[0]
-
-    top_semis = escenarios['semifinales'].most_common(1)
-    if not top_semis:
-        return None
-
-    semis_frozenset, _ = top_semis[0]
-    losers = semis_frozenset - {champion, finalist}
-    if len(losers) != 2:
-        return None
-
-    # Identifica cuál loser estuvo en la misma SF que el campeón
-    semis_ko = escenarios.get('resultados_ko', {}).get('semis', {})
-    champ_semis = {
-        k: sum(v.values())
-        for k, v in semis_ko.items()
-        if champion in k
-    }
-    if champ_semis:
-        top_sf_key = max(champ_semis, key=champ_semis.get)
-        sf1_rival = top_sf_key[0] if top_sf_key[1] == champion else top_sf_key[1]
-        if sf1_rival not in losers:
-            sf1_rival = next(iter(losers))
-    else:
-        sf1_rival = next(iter(losers))
-
-    sf2_rival = next(l for l in losers if l != sf1_rival)
-    return champion, finalist, sf1_rival, sf2_rival
-
-
-def _crear_bracket_plotly(champion, finalist, sf1_rival, sf2_rival,
-                           conf_map, df_prob, COLORES_CONF):
-    """
-    Dibuja el bracket SF → Final → Campeón usando Plotly shapes + scatter lines.
-
-    Layout (3 columnas):
-      x=0.0 : los 4 equipos en sus SF de entrada
-      x=3.0 : los 2 SF ganadores (finalists)
-      x=6.0 : el campeón
-    """
-    BOX_W = 1.6
-    BOX_H = 0.45
-
-    X_LEFT, X_MID, X_RIGHT = 0.0, 3.0, 6.0
-
-    # Y-positions para los 4 slots de SF (par superior: sf1_rival + champion)
-    Y1 = 3.2    # sf1_rival (SF half A, arriba)
-    Y2 = 2.3    # champion  (SF half A, abajo)
-    Y3 = 1.1    # finalist  (SF half B, arriba)
-    Y4 = 0.2    # sf2_rival (SF half B, abajo)
-    YM1 = (Y1 + Y2) / 2   # 2.75 — SF half A winner
-    YM2 = (Y3 + Y4) / 2   # 0.65 — SF half B winner
-    YF  = (YM1 + YM2) / 2 # 1.70 — champion
-
-    def get_prob(team, col):
-        row = df_prob[df_prob['equipo'] == team]
-        return float(row[col].values[0]) if len(row) > 0 else 0.0
+    prob_map = dict(zip(df_prob['equipo'], df_prob['p_campeon']))
 
     def get_color(team):
         return COLORES_CONF.get(conf_map.get(team, ''), '#888888')
 
-    def hex_rgba(hex_color, alpha=0.22):
+    def hex_rgba(hex_color, alpha):
         h = hex_color.lstrip('#')
         r, g, b = int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16)
         return f'rgba({r},{g},{b},{alpha})'
 
-    fig = go.Figure()
-    shapes, annotations = [], []
+    def _unique_round_teams(ronda):
+        """
+        Asigna equipos a slots con unicidad global por ronda.
+        Greedy: para cada slot, elige los 2 equipos más frecuentes que aún
+        no hayan sido asignados en la misma ronda. Esto evita que el mismo
+        equipo aparezca en múltiples partidos del mismo bracket.
+        """
+        slots_list = bracket_slots.get(ronda, [])
+        n = len(slots_list)
+        result, used = [], set()
+        for i in range(n):
+            cnt = slots_list[i] if i < n else {}
+            pair = []
+            for team, _ in (cnt.most_common(len(cnt)) if hasattr(cnt, 'most_common') else []):
+                if team not in used:
+                    pair.append(team)
+                    used.add(team)
+                    if len(pair) == 2:
+                        break
+            while len(pair) < 2:
+                pair.append('?')
+            result.append(pair)
+        return result
 
-    # Slots: (x_center, y_center, team, prob_col, is_champion_slot)
-    slots = [
-        (X_LEFT,  Y1,  sf1_rival, 'p_semis',   False),
-        (X_LEFT,  Y2,  champion,  'p_semis',   False),
-        (X_LEFT,  Y3,  finalist,  'p_semis',   False),
-        (X_LEFT,  Y4,  sf2_rival, 'p_semis',   False),
-        (X_MID,   YM1, champion,  'p_final',   False),
-        (X_MID,   YM2, finalist,  'p_final',   False),
-        (X_RIGHT, YF,  champion,  'p_campeon', True),
-    ]
+    # Pre-computar asignaciones únicas para todas las rondas
+    _slots = {r: _unique_round_teams(r) for r in ('r32', 'r16', 'cuartos', 'semis', 'final')}
 
-    for (xc, yc, team, pcol, is_champ) in slots:
+    def get_slot(ronda, idx):
+        """Retorna [team_a, team_b] para el slot idx con unicidad garantizada."""
+        teams = _slots.get(ronda, [])
+        return teams[idx] if idx < len(teams) else ['?', '?']
+
+    # ─── Bracket consistente: R16+ derivado de ganadores de R32 ──────────────
+    # En lugar de leer bracket_slots para R16/QF/SF/Final (que son aleatoriamente
+    # mezclados entre simulaciones), derivamos cada ronda avanzando al favorito
+    # (mayor p_campeon) de cada partido anterior. Esto garantiza que el equipo
+    # mostrado en una ronda sea siempre el ganador del partido que lo conecta.
+
+    def fav(a, b):
+        """Favorito entre a y b según p_campeon."""
+        return a if prob_map.get(a, 0) >= prob_map.get(b, 0) else b
+
+    r32 = [get_slot('r32', s) for s in range(16)]          # 16 partidos R32
+    r16 = [[fav(*r32[2*i]), fav(*r32[2*i+1])]              # 8 partidos R16
+           for i in range(8)]
+    qf  = [[fav(*r16[2*i]), fav(*r16[2*i+1])]              # 4 cuartos
+           for i in range(4)]
+    sf  = [[fav(*qf[0]),  fav(*qf[1])],                    # SF izquierda
+           [fav(*qf[2]),  fav(*qf[3])]]                    # SF derecha
+    fn  = [fav(*sf[0]), fav(*sf[1])]                       # finalistas
+    bracket_champion = fav(*fn)                             # campeón
+
+    # ─── Coordenadas Y ────────────────────────────────────────────────────────
+    # R32 match i (0-7): top team at 23-3i, bottom team at 22-3i, mid at 22.5-3i
+    def r32_top(i): return 23.0 - 3.0 * (i % 8)
+    def r32_bot(i): return 22.0 - 3.0 * (i % 8)
+    def r32_mid(i): return 22.5 - 3.0 * (i % 8)
+
+    R16_MID = [(r32_mid(2*j) + r32_mid(2*j+1)) / 2 for j in range(4)]  # 21,15,9,3
+    QF_MID  = [(R16_MID[2*j] + R16_MID[2*j+1]) / 2 for j in range(2)] # 18,6
+    SF_Y    = (QF_MID[0] + QF_MID[1]) / 2   # 12.0
+    FINAL_Y = SF_Y                            # 12.0
+    DELTA   = 0.50   # half-height between two teams in a post-R32 match
+
+    # ─── Coordenadas X ────────────────────────────────────────────────────────
+    BOX_W = 4.2
+    BOX_H = 0.50
+    STEP  = 6.5
+
+    X_R32_L = 0.0
+    X_R16_L = X_R32_L + STEP
+    X_QF_L  = X_R16_L + STEP
+    X_SF_L  = X_QF_L  + STEP
+    X_FINAL = X_SF_L  + STEP * 0.90
+    X_SF_R  = X_FINAL + STEP * 0.90
+    X_QF_R  = X_SF_R  + STEP
+    X_R16_R = X_QF_R  + STEP
+    X_R32_R = X_R16_R + STEP
+
+    LC, LW = '#888888', 1.0   # línea color / ancho
+
+    fig    = go.Figure()
+    shapes = []
+    annots = []
+    lxs, lys = [], []
+
+    # ── helpers ────────────────────────────────────────────────────────────────
+    def add_box(xc, yc, team, is_champ=False):
         color = get_color(team)
-        prob  = get_prob(team, pcol)
+        prob  = prob_map.get(team, 0.0)
         shapes.append(dict(
             type='rect', xref='x', yref='y',
             x0=xc - BOX_W/2, y0=yc - BOX_H/2,
             x1=xc + BOX_W/2, y1=yc + BOX_H/2,
-            fillcolor=hex_rgba(color),
-            line=dict(color=color, width=3 if is_champ else 2),
+            fillcolor=hex_rgba(color, 0.60 if is_champ else 0.45),
+            line=dict(color=color, width=3 if is_champ else 1.5),
             layer='below',
         ))
         trophy = ' 🏆' if is_champ else ''
-        annotations.append(dict(
+        annots.append(dict(
             x=xc, y=yc,
-            text=f"<b>{team}{trophy}</b><br>{prob:.1%}",
+            text=f"<b>{team}{trophy}</b>  {prob:.1%}",
             showarrow=False,
-            font=dict(size=13 if is_champ else 11),
+            font=dict(size=12 if is_champ else 9, color='#FFFFFF'),
             align='center', xanchor='center', yanchor='middle',
         ))
 
-    # Bracket lines
-    LC, LW = '#777777', 1.5
+    def seg(x1, y1, x2, y2):
+        lxs.extend([x1, x2, None])
+        lys.extend([y1, y2, None])
 
-    def draw_bracket(ta_y, tb_y, x_from, x_to, winner_y):
-        xr = x_from + BOX_W / 2   # right edge of source boxes
-        xl = x_to   - BOX_W / 2   # left edge of destination box
-        xv = (xr + xl) / 2        # vertical junction x
-        # Bracket: ta horizontal + tb horizontal + vertical connector
-        fig.add_trace(go.Scatter(
-            x=[xr, xv, None, xr, xv, None, xv, xv],
-            y=[ta_y, ta_y, None, tb_y, tb_y, None, ta_y, tb_y],
-            mode='lines', line=dict(color=LC, width=LW),
-            showlegend=False, hoverinfo='skip',
-        ))
-        # Output line: junction midpoint → winner box
-        fig.add_trace(go.Scatter(
-            x=[xv, xl], y=[winner_y, winner_y],
-            mode='lines', line=dict(color=LC, width=LW),
-            showlegend=False, hoverinfo='skip',
-        ))
+    # Bracket L-shape hacia la derecha:
+    #   dos fuentes (y_a, y_b) en x_src → un destino (y_dst) en x_dst
+    def bkt_L(y_a, y_b, x_src, x_dst, y_dst):
+        xr  = x_src + BOX_W / 2
+        xl  = x_dst - BOX_W / 2
+        xjn = (xr + xl) / 2
+        seg(xr, y_a, xjn, y_a)
+        seg(xr, y_b, xjn, y_b)
+        seg(xjn, y_a, xjn, y_b)
+        seg(xjn, y_dst, xl, y_dst)
 
-    draw_bracket(Y1,  Y2,  X_LEFT, X_MID,  YM1)  # SF half A
-    draw_bracket(Y3,  Y4,  X_LEFT, X_MID,  YM2)  # SF half B
-    draw_bracket(YM1, YM2, X_MID,  X_RIGHT, YF)  # Final
+    # Bracket L-shape hacia la izquierda (mitad derecha del bracket)
+    def bkt_R(y_a, y_b, x_src, x_dst, y_dst):
+        xl  = x_src - BOX_W / 2
+        xr  = x_dst + BOX_W / 2
+        xjn = (xl + xr) / 2
+        seg(xl, y_a, xjn, y_a)
+        seg(xl, y_b, xjn, y_b)
+        seg(xjn, y_a, xjn, y_b)
+        seg(xjn, y_dst, xr, y_dst)
 
-    # Column headers
-    for xh, lbl in [(X_LEFT, "Semifinales"), (X_MID, "Final"), (X_RIGHT, "Campeón")]:
-        annotations.append(dict(
-            x=xh, y=3.85, text=f"<b>{lbl}</b>",
-            showarrow=False, font=dict(size=13, color='#444'),
+    # Línea simple desde la arista de un box hasta la arista del siguiente
+    def conn_L(y_src, x_src, y_dst, x_dst):
+        """Conexión L desde el centro-derecho de un bracket al borde izquierdo del siguiente."""
+        xr  = x_src + BOX_W / 2
+        xl  = x_dst - BOX_W / 2
+        xjn = (xr + xl) / 2
+        seg(xr, y_src, xjn, y_src)
+        seg(xjn, y_src, xjn, y_dst)
+        seg(xjn, y_dst, xl, y_dst)
+
+    def conn_R(y_src, x_src, y_dst, x_dst):
+        """Conexión L desde el centro-izquierdo de un bracket al borde derecho del siguiente."""
+        xl  = x_src - BOX_W / 2
+        xr  = x_dst + BOX_W / 2
+        xjn = (xl + xr) / 2
+        seg(xl, y_src, xjn, y_src)
+        seg(xjn, y_src, xjn, y_dst)
+        seg(xjn, y_dst, xr, y_dst)
+
+    # ─── R32 ──────────────────────────────────────────────────────────────────
+    for s in range(8):
+        t = get_slot('r32', s)
+        yt, yb = r32_top(s), r32_bot(s)
+        add_box(X_R32_L, yt, t[0])
+        add_box(X_R32_L, yb, t[1])
+        xr = X_R32_L + BOX_W / 2
+        seg(xr, yt, xr, yb)
+
+    for s in range(8, 16):
+        t = get_slot('r32', s)
+        j = s - 8
+        yt, yb = r32_top(j), r32_bot(j)
+        add_box(X_R32_R, yt, t[0])
+        add_box(X_R32_R, yb, t[1])
+        xl = X_R32_R - BOX_W / 2
+        seg(xl, yt, xl, yb)
+
+    # ─── R16 ──────────────────────────────────────────────────────────────────
+    for s in range(4):
+        t  = r16[s]
+        yc = R16_MID[s]
+        add_box(X_R16_L, yc + DELTA, t[0])
+        add_box(X_R16_L, yc - DELTA, t[1])
+        bkt_L(r32_mid(2*s), r32_mid(2*s+1), X_R32_L, X_R16_L, yc)
+        xr = X_R16_L + BOX_W / 2
+        seg(xr, yc + DELTA, xr, yc - DELTA)
+
+    for s in range(4, 8):
+        j  = s - 4
+        t  = r16[s]
+        yc = R16_MID[j]
+        add_box(X_R16_R, yc + DELTA, t[0])
+        add_box(X_R16_R, yc - DELTA, t[1])
+        bkt_R(r32_mid(2*j), r32_mid(2*j+1), X_R32_R, X_R16_R, yc)
+        xl = X_R16_R - BOX_W / 2
+        seg(xl, yc + DELTA, xl, yc - DELTA)
+
+    # ─── Cuartos ──────────────────────────────────────────────────────────────
+    for s in range(2):
+        t  = qf[s]
+        yc = QF_MID[s]
+        add_box(X_QF_L, yc + DELTA, t[0])
+        add_box(X_QF_L, yc - DELTA, t[1])
+        bkt_L(R16_MID[2*s], R16_MID[2*s+1], X_R16_L, X_QF_L, yc)
+        xr = X_QF_L + BOX_W / 2
+        seg(xr, yc + DELTA, xr, yc - DELTA)
+
+    for s in range(2, 4):
+        j  = s - 2
+        t  = qf[s]
+        yc = QF_MID[j]
+        add_box(X_QF_R, yc + DELTA, t[0])
+        add_box(X_QF_R, yc - DELTA, t[1])
+        bkt_R(R16_MID[2*j], R16_MID[2*j+1], X_R16_R, X_QF_R, yc)
+        xl = X_QF_R - BOX_W / 2
+        seg(xl, yc + DELTA, xl, yc - DELTA)
+
+    # ─── Semis ────────────────────────────────────────────────────────────────
+    add_box(X_SF_L, SF_Y + DELTA, sf[0][0])
+    add_box(X_SF_L, SF_Y - DELTA, sf[0][1])
+    bkt_L(QF_MID[0], QF_MID[1], X_QF_L, X_SF_L, SF_Y)
+    xr_sf = X_SF_L + BOX_W / 2
+    seg(xr_sf, SF_Y + DELTA, xr_sf, SF_Y - DELTA)
+
+    add_box(X_SF_R, SF_Y + DELTA, sf[1][0])
+    add_box(X_SF_R, SF_Y - DELTA, sf[1][1])
+    bkt_R(QF_MID[0], QF_MID[1], X_QF_R, X_SF_R, SF_Y)
+    xl_sf = X_SF_R - BOX_W / 2
+    seg(xl_sf, SF_Y + DELTA, xl_sf, SF_Y - DELTA)
+
+    # ─── Final ────────────────────────────────────────────────────────────────
+    add_box(X_FINAL, FINAL_Y + DELTA, fn[0])
+    add_box(X_FINAL, FINAL_Y - DELTA, fn[1])
+
+    # SF_L bracket midpoint → Final top
+    conn_L(SF_Y, X_SF_L, FINAL_Y + DELTA, X_FINAL)
+    # SF_R bracket midpoint → Final bottom
+    conn_R(SF_Y, X_SF_R, FINAL_Y - DELTA, X_FINAL)
+
+    # Within-final vertical bracket en el lado derecho del box
+    xr_f = X_FINAL + BOX_W / 2
+    seg(xr_f, FINAL_Y + DELTA, xr_f, FINAL_Y - DELTA)
+
+    # ─── Campeón ──────────────────────────────────────────────────────────────
+    Y_CHAMP = FINAL_Y - 2.8
+    add_box(X_FINAL, Y_CHAMP, bracket_champion, is_champ=True)
+    # Línea desde el centro del bracket de la final hacia abajo al campeón
+    seg(xr_f, FINAL_Y,
+        xr_f, FINAL_Y - DELTA - BOX_H/2 - 0.1)   # baja hasta justo debajo del final
+    seg(xr_f, FINAL_Y - DELTA - BOX_H/2 - 0.1,
+        X_FINAL, FINAL_Y - DELTA - BOX_H/2 - 0.1) # horizontal al centro
+    seg(X_FINAL, FINAL_Y - DELTA - BOX_H/2 - 0.1,
+        X_FINAL, Y_CHAMP + BOX_H/2)                # baja al campeón
+
+    # ─── Agregar líneas ───────────────────────────────────────────────────────
+    fig.add_trace(go.Scatter(
+        x=lxs, y=lys, mode='lines',
+        line=dict(color=LC, width=LW),
+        showlegend=False, hoverinfo='skip',
+    ))
+
+    # ─── Encabezados de ronda ─────────────────────────────────────────────────
+    HDR_Y = 25.5
+    for xh, lbl in [
+        (X_R32_L, "R32"), (X_R16_L, "R16"), (X_QF_L, "Cuartos"),
+        (X_SF_L, "Semis"), (X_FINAL, "Final"),
+        (X_SF_R, "Semis"), (X_QF_R, "Cuartos"), (X_R16_R, "R16"), (X_R32_R, "R32"),
+    ]:
+        annots.append(dict(
+            x=xh, y=HDR_Y, text=f"<b>{lbl}</b>",
+            showarrow=False, font=dict(size=11, color='#AAAAAA'),
             xanchor='center',
         ))
 
+    X_TOTAL  = X_R32_R + BOX_W / 2 + 0.5
+    x_span   = X_TOTAL + BOX_W / 2 + 0.3          # rango total X
+    y_span   = (HDR_Y + 1.0) - (Y_CHAMP - 1.2)    # rango total Y
+    FIG_H    = 820
+    FIG_W    = int(FIG_H * x_span / y_span)        # ancho proporcional al aspecto real
     fig.update_layout(
-        shapes=shapes, annotations=annotations,
-        xaxis=dict(range=[-1.2, 7.8], visible=False, fixedrange=True),
-        yaxis=dict(range=[-0.5, 4.3], visible=False, fixedrange=True),
-        height=440,
-        margin=dict(l=10, r=10, t=30, b=10),
+        shapes=shapes, annotations=annots,
+        xaxis=dict(range=[-BOX_W/2 - 0.3, X_TOTAL], visible=False, fixedrange=False),
+        yaxis=dict(range=[Y_CHAMP - 1.2, HDR_Y + 1.0], visible=False, fixedrange=True),
+        height=FIG_H,
+        width=FIG_W,
+        margin=dict(l=8, r=8, t=30, b=8),
         paper_bgcolor='rgba(0,0,0,0)',
         plot_bgcolor='rgba(0,0,0,0)',
         showlegend=False,
@@ -979,30 +1133,42 @@ if st.session_state.resultados is not None:
 
     # ── Tab 4: Bracket ────────────────────────────────────────────────────────
     with tab4:
-        st.subheader("🗂️ Bracket esperado")
+        st.subheader("🗂️ Bracket esperado — R32 → Final")
 
         conf_map = df_clasif.set_index('equipo')['confederacion'].to_dict()
-        bracket  = _construir_bracket_sf(escenarios, n_total)
 
-        if bracket is None:
-            st.info("No hay suficientes datos. Ejecutá una simulación primero.")
+        (champion, finalist), cnt_final = escenarios['finales'].most_common(1)[0]
+        p_final_scenario = cnt_final / n_total
+
+        st.caption(
+            f"Cada partido muestra los 2 equipos más frecuentes en ese slot a lo largo de "
+            f"las {n_total:,} simulaciones. "
+            f"Final más probable: **{champion}** 🆚 **{finalist}** "
+            f"({p_final_scenario:.1%} de los torneos)."
+        )
+
+        fig_bracket = _crear_bracket_full(escenarios, df, COLORES_CONF, conf_map)
+
+        if fig_bracket is None:
+            st.info("No hay datos de bracket. Ejecutá una simulación primero.")
         else:
-            champion, finalist, sf1_rival, sf2_rival = bracket
-
-            p_final_scenario = escenarios['finales'].most_common(1)[0][1] / n_total
-            p_semis_scenario = escenarios['semifinales'].most_common(1)[0][1] / n_total
-            st.caption(
-                f"Construido a partir del escenario de Final más frecuente "
-                f"(**{champion}** 🆚 **{finalist}**, ocurre en el **{p_final_scenario:.1%}** de simulaciones) "
-                f"y la combinación de semifinalistas más común "
-                f"({p_semis_scenario:.1%} de simulaciones)."
+            fig_html = pio.to_html(
+                fig_bracket,
+                full_html=True,
+                include_plotlyjs='cdn',
+                config={'scrollZoom': True, 'displayModeBar': False},
             )
-
-            fig_bracket = _crear_bracket_plotly(
-                champion, finalist, sf1_rival, sf2_rival,
-                conf_map, df, COLORES_CONF,
+            # Inyectamos CSS dentro del HTML para forzar scroll horizontal en el iframe
+            fig_html = fig_html.replace(
+                '</head>',
+                '<style>body{margin:0;padding:0;background:transparent;overflow-x:auto;overflow-y:hidden;}'
+                '.plotly-graph-div{display:block !important;}</style></head>'
             )
-            st.plotly_chart(fig_bracket, use_container_width=True)
+            components.html(
+                fig_html,
+                height=fig_bracket.layout.height + 30,
+                scrolling=True,
+            )
 
             # ── Heatmap de probabilidades QF → Campeón ───────────────────────
             st.divider()

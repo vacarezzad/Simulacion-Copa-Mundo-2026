@@ -94,6 +94,19 @@ def _merge_res_ko(dst: Dict, src: Dict) -> None:
             dst[ronda][key] += cnt
 
 
+def _inicializar_bracket_slots() -> Dict:
+    """Crea listas de Counters para rastrear qué equipos aparecen en cada slot KO."""
+    sizes = [('r32', 16), ('r16', 8), ('cuartos', 4), ('semis', 2), ('final', 1)]
+    return {ronda: [Counter() for _ in range(n)] for ronda, n in sizes}
+
+
+def _merge_bracket_slots(dst: Dict, src: Dict) -> None:
+    """Suma bracket_slots in-place (dst += src)."""
+    for ronda in dst:
+        for i in range(len(dst[ronda])):
+            dst[ronda][i] += src[ronda][i]
+
+
 # ─── Worker (nivel de módulo → picklable para ProcessPoolExecutor) ────────────
 
 def _worker_chunk(packed_args: tuple) -> dict:
@@ -124,8 +137,9 @@ def _worker_chunk(packed_args: tuple) -> dict:
     segundos_grupo_counter  = {g: Counter() for g in GRUPOS}
 
     # Contadores de resultados de partidos
-    res_grupos = _inicializar_res_grupos(grupos_dict)
-    res_ko     = _inicializar_res_ko()
+    res_grupos    = _inicializar_res_grupos(grupos_dict)
+    res_ko        = _inicializar_res_ko()
+    bracket_slots = _inicializar_bracket_slots()
 
     for _ in range(n_chunk):
         torneo = simular_torneo(df, stats, config, rng, grupos_dict=grupos_dict)
@@ -154,10 +168,13 @@ def _worker_chunk(packed_args: tuple) -> dict:
 
         # Resultados de partidos — fases KO
         for ronda in RONDAS_KO:
-            for ta, tb, ga, gb, metodo, ganador in rp[ronda]:
+            for i, (ta, tb, ga, gb, metodo, ganador) in enumerate(rp[ronda]):
                 key, ga_n, gb_n = _partido_key(ta, tb, ga, gb)
-                ta_wins = (ganador == key[0])  # key[0] es el equipo canónico ta
+                ta_wins = (ganador == key[0])
                 res_ko[ronda][key][(ga_n, gb_n, metodo, ta_wins)] += 1
+                # Bracket slots: qué equipos aparecen en cada slot
+                bracket_slots[ronda][i][ta] += 1
+                bracket_slots[ronda][i][tb] += 1
 
     return {
         'conteos'        : conteos,
@@ -168,6 +185,7 @@ def _worker_chunk(packed_args: tuple) -> dict:
         'segundos_grupo' : segundos_grupo_counter,
         'res_grupos'     : res_grupos,
         'res_ko'         : res_ko,
+        'bracket_slots'  : bracket_slots,
     }
 
 
@@ -220,8 +238,9 @@ def correr_simulacion(
     ganadores_grupo_counter = {g: Counter() for g in GRUPOS}
     segundos_grupo_counter  = {g: Counter() for g in GRUPOS}
 
-    res_grupos = _inicializar_res_grupos(grupos_dict)
-    res_ko     = _inicializar_res_ko()
+    res_grupos    = _inicializar_res_grupos(grupos_dict)
+    res_ko        = _inicializar_res_ko()
+    bracket_slots = _inicializar_bracket_slots()
 
     rng = np.random.default_rng(config.seed)
     n   = config.n_simulaciones
@@ -250,10 +269,12 @@ def correr_simulacion(
             res_grupos[key][(ga_n, gb_n)] += 1
 
         for ronda in RONDAS_KO:
-            for ta, tb, ga, gb, metodo, ganador in rp[ronda]:
+            for j, (ta, tb, ga, gb, metodo, ganador) in enumerate(rp[ronda]):
                 key, ga_n, gb_n = _partido_key(ta, tb, ga, gb)
-                ta_wins = (ganador == key[0])  # key[0] es el equipo canónico ta
+                ta_wins = (ganador == key[0])
                 res_ko[ronda][key][(ga_n, gb_n, metodo, ta_wins)] += 1
+                bracket_slots[ronda][j][ta] += 1
+                bracket_slots[ronda][j][tb] += 1
 
         if callback and (i + 1) % max(1, n // 100) == 0:
             callback(i + 1, n)
@@ -268,6 +289,7 @@ def correr_simulacion(
         'campeon_por_conf' : campeon_conf_counter,
         'resultados_grupos': res_grupos,
         'resultados_ko'    : res_ko,
+        'bracket_slots'    : bracket_slots,
         'n'                : n,
     }
     return df_result, escenarios
@@ -316,6 +338,7 @@ def correr_simulacion_paralelo(
     segundos_grupo_total  = {g: Counter() for g in GRUPOS}
     res_grupos_total      = _inicializar_res_grupos(grupos_dict)
     res_ko_total          = _inicializar_res_ko()
+    bracket_slots_total   = _inicializar_bracket_slots()
 
     with ProcessPoolExecutor(max_workers=n_workers) as executor:
         futures     = [executor.submit(_worker_chunk, args) for args in packed_args]
@@ -338,6 +361,7 @@ def correr_simulacion_paralelo(
 
             _merge_res_grupos(res_grupos_total, result['res_grupos'])
             _merge_res_ko(res_ko_total, result['res_ko'])
+            _merge_bracket_slots(bracket_slots_total, result['bracket_slots'])
 
             completadas += 1
             if callback:
@@ -353,6 +377,7 @@ def correr_simulacion_paralelo(
         'campeon_por_conf' : campeon_conf_total,
         'resultados_grupos': res_grupos_total,
         'resultados_ko'    : res_ko_total,
+        'bracket_slots'    : bracket_slots_total,
         'n'                : n,
     }
     return df_result, escenarios
