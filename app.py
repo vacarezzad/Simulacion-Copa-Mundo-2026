@@ -66,30 +66,18 @@ with st.sidebar:
         min_value=0.0, max_value=1.0, value=0.30, step=0.05,
         help="Ajusta los promedios históricos según los puntos FIFA vigentes (Feb 2026)"
     )
-    debutante_mode = st.selectbox(
-        "Imputación de debutantes",
-        options=['conf_avg', 'puntaje', 'global_min'],
-        format_func=lambda x: {
-            'conf_avg'  : '📐 Promedio de confederación',
-            'puntaje'   : '📈 Interpolación por puntos FIFA',
-            'global_min': '📉 Peor del dataset (pesimista)',
-        }[x],
-        help="Curacao, Jordan, Cape Verde y Uzbekistán no tienen historial en Mundiales"
-    )
+    debutante_mode = 'conf_avg'
 
     st.divider()
 
     st.subheader("⚽ Modelo de goles")
-    base_goles = st.slider(
-        "Goles base por equipo por partido",
-        min_value=1.00, max_value=1.80, value=1.35, step=0.05,
-        help="Media global histórica en Mundiales. Sube → más goles → más incertidumbre"
-    )
-    factor_local = st.slider(
+    base_goles = 1.35
+    sede_si = st.selectbox(
         "Ventaja de sede (USA / Canadá / México)",
-        min_value=1.00, max_value=1.20, value=1.08, step=0.01,
-        help="Multiplicador sobre los goles esperados para los 3 países anfitriones"
+        options=["No", "Sí"],
+        help="¿Aplicar ventaja de local a los 3 países anfitriones?"
     )
+    factor_local = 1.10 if sede_si == "Sí" else 1.0
     min_partidos_rec = st.slider(
         "Muestra mínima de partidos recientes",
         min_value=3, max_value=15, value=6, step=1,
@@ -98,34 +86,19 @@ with st.sidebar:
             "Evita que promedios de 2 torneos (ej: Netherlands no clasificó 2018) dominen el modelo."
         )
     )
-    bonus_campeon = st.slider(
+    campeon_si = st.selectbox(
         "Bonus campeón vigente (Argentina 2022)",
-        min_value=1.00, max_value=1.20, value=1.08, step=0.01,
-        help="Multiplicador extra sobre el λ de ataque del actual campeón del mundo"
+        options=["No", "Sí"],
+        help="¿Aplicar bonus de ataque al actual campeón del mundo?"
     )
-    rho_dc = st.slider(
-        "Corrección Dixon-Coles (ρ)",
-        min_value=0.00, max_value=0.20, value=0.08, step=0.01,
-        help=(
-            "ρ = 0 → Poisson puro (sin corrección). "
-            "ρ > 0 → más resultados 1-0 / 0-1, menos 0-0 / 1-1. "
-            "Estimado empíricamente en ~0.08 para mundiales."
-        ),
-    )
+    bonus_campeon = 1.10 if campeon_si == "Sí" else 1.0
+    rho_dc = 0.08
 
     st.divider()
 
     st.subheader("🔴 Fases eliminatorias")
-    simular_et = st.checkbox(
-        "Simular tiempo extra (30 min)",
-        value=True,
-        help="Si está desmarcado, el empate en 90' va directo a penales"
-    )
-    penalty_weight = st.slider(
-        "Influencia del ranking en penales",
-        min_value=0.00, max_value=0.40, value=0.15, step=0.05,
-        help="0 = 50-50 puro | 0.4 = fuerte ventaja al equipo mejor rankeado"
-    )
+    simular_et = True
+    penalty_weight = 0.15
     penalty_k = st.select_slider(
         "Escala de diferencia en penales",
         options=[200, 300, 400, 500, 600],
@@ -143,9 +116,7 @@ with st.sidebar:
         format_func=lambda x: f"{x:,}",
         help="Más simulaciones = más precisión pero más tiempo de cómputo"
     )
-    usar_semilla = st.checkbox("Usar semilla fija (reproducible)", value=True)
-    seed = st.number_input("Semilla", min_value=0, max_value=99999, value=42,
-                           disabled=not usar_semilla)
+    seed = 42
 
     st.divider()
 
@@ -198,7 +169,7 @@ if simular_btn:
         penalty_k              = float(penalty_k),
         debutante_mode         = debutante_mode,
         n_simulaciones         = n_sims,
-        seed                   = int(seed) if usar_semilla else None,
+        seed                   = seed,
         rho_dc                 = rho_dc,
     )
 
