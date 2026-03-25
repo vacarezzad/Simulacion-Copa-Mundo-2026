@@ -96,44 +96,12 @@ with st.sidebar:
 
     st.divider()
 
-    st.subheader("🔴 Fases eliminatorias")
     simular_et = True
     penalty_weight = 0.15
-    penalty_k = st.select_slider(
-        "Escala de diferencia en penales",
-        options=[200, 300, 400, 500, 600],
-        value=400,
-        help="Mayor valor → diferencias de puntos FIFA impactan menos en penales"
-    )
-
-    st.divider()
-
-    st.subheader("🎲 Simulación")
-    n_sims = st.select_slider(
-        "Número de simulaciones",
-        options=[10_000, 50_000, 100_000, 250_000, 500_000],
-        value=100_000,
-        format_func=lambda x: f"{x:,}",
-        help="Más simulaciones = más precisión pero más tiempo de cómputo"
-    )
+    penalty_k = 400
+    n_sims = 250_000
     seed = 42
-
-    st.divider()
-
-    st.subheader("⚡ Rendimiento")
-    _n_cpu = os.cpu_count() or 4
-    n_workers = st.select_slider(
-        "Núcleos para paralelismo",
-        options=[1, 2, 4, 8],
-        value=min(4, _n_cpu),
-        format_func=lambda x: f"{'🔵 Secuencial' if x == 1 else f'🟢 {x} núcleos'}",
-        help=(
-            f"Tu equipo tiene {_n_cpu} núcleo(s) disponibles. "
-            "Modo secuencial (1) muestra barra de progreso fina. "
-            "Modo paralelo divide el trabajo entre núcleos → 3-6× más rápido. "
-            "Recomendado ≥ 50.000 simulaciones para amortizar el arranque."
-        ),
-    )
+    n_workers = 4
 
     st.divider()
     simular_btn = st.button("▶  Simular torneo", type="primary", use_container_width=True)
